@@ -1,25 +1,172 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Game of Light — An Initiate of the 44</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A mirror held to the flame. The Game of Light — a modern initiatory scripture." />
+  <meta property="og:title" content="The Game of Light" />
+  <meta property="og:description" content="A mirror held to the flame. The Game of Light — a modern initiatory scripture." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og.png" />
+  <link rel="icon" href="assets/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    body {margin:0; font-family: system-ui, sans-serif; background:#0b0f14; color:#e8e6e3; display:flex; align-items:center; justify-content:center; min-height:100vh; padding:20px;}
-    .card {max-width:800px; padding:32px; background:#10161f; border-radius:16px; box-shadow:0 12px 40px rgba(0,0,0,.5);}
-    h1 {text-align:center; margin-top:0; font-size:2.4em;}
-    .subtitle {text-align:center; color:#b8b6b2; margin-bottom:20px;}
-    .note {white-space:pre-wrap; font-size:1.1em; line-height:1.5;}
+    :root{
+      --bg:#07090f;
+      --fg:#eef0f3;
+      --muted:#b9bdc6;
+      --gold:#cdb67a;
+      --gold-soft:rgba(205,182,122,.18);
+      --glass:rgba(255,255,255,.06);
+      --glass-border:rgba(255,255,255,.12);
+      --shadow:0 20px 60px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.06);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--fg);
+      background: radial-gradient(1200px 900px at 50% -10%, #162036 0%, var(--bg) 60%, #030408 100%);
+      font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      overflow-x:hidden;
+    }
+
+    /* Animated aurora gradient */
+    .gradient{
+      position:fixed; inset:-20% -20%;
+      background:
+        radial-gradient(60% 45% at 70% 10%, rgba(166,137,255,.18), transparent 60%),
+        radial-gradient(45% 40% at 30% 0%, rgba(83,193,255,.18), transparent 60%),
+        radial-gradient(65% 55% at 50% 100%, rgba(205,182,122,.10), transparent 60%);
+      filter:saturate(110%) blur(18px);
+      animation: drift 22s ease-in-out infinite alternate;
+      pointer-events:none;
+    }
+    @keyframes drift{
+      0%{transform:translate3d(-2%, -1%, 0) scale(1)}
+      100%{transform:translate3d(2%, 1%, 0) scale(1.05)}
+    }
+
+    /* Starfield canvas */
+    canvas#stars{position:fixed; inset:0; pointer-events:none; opacity:.6; mix-blend-mode:screen}
+
+    /* Flower-of-life veil */
+    .veil{
+      position:fixed; inset:0;
+      background:url('assets/flower-tile.svg') center / 420px repeat;
+      opacity:.08;
+      mix-blend-mode:overlay;
+      pointer-events:none;
+      animation: veilmotion 40s linear infinite;
+    }
+    @keyframes veilmotion{to{background-position: 0 420px}}
+
+    /* Centerpiece card */
+    .wrap{min-height:100%; display:flex; align-items:center; justify-content:center; padding:64px 20px}
+    .card{
+      width:min(980px, 94vw);
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--glass-border);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:42px 28px;
+      position:relative;
+      overflow:hidden;
+      backdrop-filter: blur(10px) saturate(115%);
+    }
+
+    /* Halo ring behind sigil */
+    .card:before{
+      content:"";
+      position:absolute; inset:auto auto 10% 50%;
+      width:520px; height:520px; transform:translateX(-50%);
+      background:radial-gradient(closest-side, rgba(205,182,122,.14), rgba(205,182,122,0) 70%);
+      filter:blur(8px);
+      z-index:0;
+      animation: pulse 8s ease-in-out infinite;
+    }
+    @keyframes pulse{50%{transform:translateX(-50%) scale(1.06)}}
+
+    .sigil{
+      display:block; width:120px; height:120px; margin:0 auto 14px; position:relative; z-index:1;
+      filter: drop-shadow(0 8px 26px rgba(205,182,122,.28));
+      animation: breathe 10s ease-in-out infinite;
+    }
+    @keyframes breathe{50%{transform: translateZ(0) scale(1.03)}}
+
+    h1{
+      margin:6px 0 6px; text-align:center; letter-spacing:.6px;
+      font-family:'Cinzel', serif; font-weight:700;
+      font-size:clamp(32px, 6vw, 56px);
+      text-shadow: 0 0 22px var(--gold-soft);
+    }
+    .subtitle{
+      text-align:center; color:var(--muted);
+      font-size:clamp(14px, 2.4vw, 18px);
+      margin-bottom:26px;
+    }
+
+    .note{
+      position:relative; z-index:1;
+      background:rgba(8,10,16,.55);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:18px;
+      padding:22px 18px;
+      font-size:clamp(16px, 2.2vw, 19px);
+      line-height:1.7;
+      white-space:pre-wrap;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+    }
+    .note em{font-style:normal; color:var(--gold)}
+
+    .grid{
+      display:grid; gap:16px; margin-top:28px;
+      grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+      position:relative; z-index:1;
+    }
+    .tile{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:16px;
+      padding:16px;
+    }
+    .tile h3{margin:0 0 6px; font:600 17px/1 'Inter',sans-serif}
+    .muted{color:var(--muted)}
+
+    .pills{display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:22px}
+    .pill{
+      padding:8px 12px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.03);
+      text-decoration:none; color:var(--fg);
+    }
+    footer{margin-top:26px; text-align:center; color:var(--muted); font-size:13px}
+
+    /* Subtle entrance animations */
+    .fade-up{opacity:0; transform:translateY(10px); animation:rise .9s ease .2s forwards}
+    .fade-up2{opacity:0; transform:translateY(10px); animation:rise .9s ease .35s forwards}
+    .fade-up3{opacity:0; transform:translateY(10px); animation:rise .9s ease .5s forwards}
+    @keyframes rise{to{opacity:1; transform:none}}
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>The Game of Light</h1>
-    <div class="subtitle">A mirror held to the flame — An Initiate of the 44</div>
-    <div class="note">
+  <div class="gradient"></div>
+  <canvas id="stars"></canvas>
+  <div class="veil"></div>
+
+  <div class="wrap">
+    <main class="card fade-up">
+      <img class="sigil" src="assets/sigil.svg" alt="Flower of Life sigil">
+      <h1 class="fade-up2">The Game of Light</h1>
+      <div class="subtitle fade-up3">A mirror held to the flame — <span style="opacity:.9">An Initiate of the 44</span></div>
+
+      <section class="note fade-up3">
 These writings are not mine.
 They are older than I am, and younger than I am.
-They came as a thread, a whisper, a hum -
+They came as a thread, a whisper, a hum —
 and I have only carried the flame that shaped them into words.
 
 I claim no authorship, no authority, no crown.
@@ -28,11 +175,81 @@ one who keeps the books safe until they find their seekers.
 
 If you are holding this text, then it has reached you as it was meant to.
 Take what speaks, leave what does not.
-The Light does not belong to me - nor to any one being.
+The Light does not belong to me — nor to any one being.
 It belongs to all who see it.
 
-- An Initiate of the 44
-    </div>
+— <em>An Initiate of the 44</em>
+      </section>
+
+      <div class="grid fade-up3">
+        <div class="tile">
+          <h3>Texts</h3>
+          <div class="muted">Excerpts & verses (coming soon)</div>
+        </div>
+        <div class="tile">
+          <h3>Relics</h3>
+          <div class="muted">Clothbound editions & prints (coming soon)</div>
+        </div>
+        <div class="tile">
+          <h3>Boardgame</h3>
+          <div class="muted">The Game of Light — the board (coming soon)</div>
+        </div>
+        <div class="tile">
+          <h3>Contact</h3>
+          <div class="muted"><a href="mailto:contact@thegameoflight.org">contact@thegameoflight.org</a></div>
+        </div>
+      </div>
+
+      <div class="pills fade-up3">
+        <span class="pill">Flower of Life</span>
+        <span class="pill">Mirror</span>
+        <span class="pill">Flame</span>
+        <span class="pill">Temple</span>
+        <span class="pill">Singularity</span>
+      </div>
+
+      <footer>© <span id="year"></span> The Game of Light • Custodian — An Initiate of the 44</footer>
+    </main>
   </div>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Starfield
+    (function(){
+      const c = document.getElementById('stars');
+      const dpr = Math.min(2, window.devicePixelRatio || 1);
+      const ctx = c.getContext('2d');
+      let w, h, stars = [];
+      function resize(){
+        w = c.width = innerWidth * dpr;
+        h = c.height = innerHeight * dpr;
+        c.style.width = innerWidth + 'px';
+        c.style.height = innerHeight + 'px';
+        stars = Array.from({length: 180}, () => ({
+          x: Math.random()*w,
+          y: Math.random()*h,
+          r: (Math.random()*1.2 + .2) * dpr,
+          s: (Math.random()*0.6 + 0.2) * dpr,
+          a: Math.random() * Math.PI * 2
+        }));
+      }
+      function draw(){
+        ctx.clearRect(0,0,w,h);
+        for(const s of stars){
+          s.a += 0.005 * s.s;
+          const twinkle = 0.5 + Math.sin(s.a)*0.5;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r * twinkle, 0, Math.PI*2);
+          ctx.fillStyle = 'rgba(255,255,255,'+(0.45*twinkle)+')';
+          ctx.fill();
+        }
+        requestAnimationFrame(draw);
+      }
+      addEventListener('resize', resize, {passive:true});
+      resize(); draw();
+    })();
+  </script>
 </body>
 </html>
