@@ -1,19 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 260">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#e9dcaf"/>
-      <stop offset="100%" stop-color="#b79d5b"/>
-    </linearGradient>
+    <radialGradient id="g" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#fff6d4"/>
+      <stop offset="60%" stop-color="#c1a56e"/>
+      <stop offset="100%" stop-color="#c1a56e" stop-opacity="0.1"/>
+    </radialGradient>
   </defs>
-  <g fill="none" stroke="url(#g)" stroke-width="1.6" opacity="0.95">
-    <circle cx="110" cy="110" r="44"/>
-    <circle cx="110" cy="66" r="44"/>
-    <circle cx="110" cy="154" r="44"/>
-    <circle cx="66" cy="110" r="44"/>
-    <circle cx="154" cy="110" r="44"/>
-    <circle cx="86" cy="86" r="44"/>
-    <circle cx="134" cy="86" r="44"/>
-    <circle cx="86" cy="134" r="44"/>
-    <circle cx="134" cy="134" r="44"/>
+  <g fill="none" stroke="url(#g)" stroke-width="1.6" opacity="0.92">
+    <circle cx="130" cy="130" r="48"/>
+    <circle cx="130" cy="82" r="48"/>
+    <circle cx="130" cy="178" r="48"/>
+    <circle cx="82" cy="130" r="48"/>
+    <circle cx="178" cy="130" r="48"/>
+    <circle cx="102" cy="102" r="48"/>
+    <circle cx="158" cy="102" r="48"/>
+    <circle cx="102" cy="158" r="48"/>
+    <circle cx="158" cy="158" r="48"/>
   </g>
 </svg>

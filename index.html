@@ -3,116 +3,142 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Game of Light — Codex</title>
-  <meta name="description" content="Fragments of a greater pattern. The Game of Light — relics emerging through the veil." />
-  <meta property="og:title" content="The Game of Light — Codex" />
-  <meta property="og:description" content="Fragments of a greater pattern. The Game of Light — relics emerging through the veil." />
+  <title>The Game of Light</title>
+  <meta name="description" content="Fragments emerging through the veil." />
+  <meta property="og:title" content="The Game of Light" />
+  <meta property="og:description" content="Fragments emerging through the veil." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/og.jpg" />
   <link rel="icon" href="assets/favicon.ico" />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Crimson+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Crimson+Pro:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --ink:#1f1d19;
-      --ink2:#4a463c;
-      --gold:#b79d5b;
-      --paper:#e7dfcc;
+      --ink:#1d1a16;
+      --ink2:#3f3a2f;
+      --gold:#c1a56e;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0; color:var(--ink);
-      background: url('assets/parchment.jpg') center/cover fixed no-repeat;
+      background: url('assets/vellum.jpg') center/cover fixed no-repeat;
       font-family:'Crimson Pro', Georgia, serif;
+      overflow-x:hidden;
     }
-    .wrap{min-height:100%; display:flex; align-items:center; justify-content:center; padding:60px 20px}
-    .page{
-      width:min(900px, 94vw);
-      background:rgba(255,255,255,.52);
-      border:1px solid rgba(0,0,0,.07);
-      border-radius:20px;
-      backdrop-filter: blur(1.5px) saturate(110%);
-      box-shadow: 0 30px 80px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.6);
-      position:relative; padding:36px 26px;
+    .veil{
+      position:fixed; inset:0; pointer-events:none;
+      background: radial-gradient(1600px 1200px at 50% -10%, rgba(0,0,0,.12), rgba(0,0,0,0) 65%),
+                  radial-gradient(1400px 1000px at 50% 120%, rgba(0,0,0,.22), rgba(0,0,0,0) 60%);
+      mix-blend-mode:multiply;
     }
+    .center{
+      min-height:100%;
+      display:flex; align-items:center; justify-content:center;
+      padding:60px 20px;
+    }
+    .chamber{
+      position:relative;
+      width:min(1100px, 96vw);
+      text-align:center;
+    }
+    .halo{
+      position:absolute; left:50%; top:50%;
+      width:min(60vmin, 520px); height:min(60vmin, 520px);
+      transform:translate(-50%, -56%);
+      opacity:.85; filter: blur(2px);
+      animation: ring 22s ease-in-out infinite alternate;
+    }
+    @keyframes ring { 50% { transform: translate(-50%, -56%) scale(1.04) } }
     .sigil{
-      display:block; width:110px; height:110px; margin:0 auto 12px;
-      filter: drop-shadow(0 8px 22px rgba(183,157,91,.35));
-      animation: candle 3.5s ease-in-out infinite;
+      position:absolute; left:50%; top:50%;
+      width:min(36vmin, 320px); height:min(36vmin, 320px);
+      transform:translate(-50%, -58%);
+      filter: drop-shadow(0 12px 36px rgba(193,165,110,.28));
+      animation: breathe 14s ease-in-out infinite;
+      opacity:.92;
     }
-    @keyframes candle{50%{transform:translateY(-0.6px)}}
+    @keyframes breathe { 50% { transform: translate(-50%, -58%) scale(1.02) } }
     h1{
-      margin:0 0 6px; text-align:center; letter-spacing:.8px;
-      font-family:'Cinzel', serif; font-weight:700; color:#1f1d19;
-      font-size:clamp(30px, 6vw, 54px);
-      text-shadow: 0 0 1px rgba(0,0,0,.15);
+      margin:0 0 10px;
+      font-family:'Cinzel', serif;
+      font-weight:700; letter-spacing:.9px;
+      font-size:clamp(36px, 6.5vw, 72px);
+      text-shadow: 0 1px 0 rgba(255,255,255,.5);
     }
     .subtitle{
-      text-align:center; color:var(--ink2);
-      font-size:clamp(14px,2.2vw,18px); margin-bottom:12px;
+      color:var(--ink2);
+      font-size:clamp(14px, 2.2vw, 20px);
+      margin-bottom:22px;
     }
-    .orn{display:block; width:240px; margin:10px auto 18px; opacity:.9}
-    .note{
-      background: linear-gradient(180deg, rgba(255,255,255,.68), rgba(255,255,255,.58));
-      border:1px solid rgba(0,0,0,.06);
-      border-radius:14px; padding:20px 18px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
-      font-size:clamp(16px,2.2vw,19px); line-height:1.75; color:#1f1d19;
-      white-space:pre-wrap;
+    .text{
+      margin:0 auto;
+      max-width:760px;
+      font-size:clamp(16px, 2.2vw, 21px);
+      line-height:1.9;
+      letter-spacing:.2px;
     }
-    .grid{display:grid; gap:14px; margin-top:22px; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));}
-    .tile{
-      background: linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.6));
-      border:1px solid rgba(0,0,0,.06);
-      border-radius:12px; padding:14px 16px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.7);
+    .line{opacity:0; transform:translateY(8px);}
+    .l1{animation: fade 2.8s ease 0.4s forwards}
+    .l2{animation: fade 2.8s ease 2.0s forwards}
+    .l3{animation: fade 2.8s ease 3.6s forwards}
+    .l4{animation: fade 2.8s ease 5.2s forwards}
+    .l5{animation: fade 2.8s ease 6.8s forwards}
+    .l6{animation: fade 2.8s ease 8.4s forwards}
+    @keyframes fade { to { opacity:1; transform:none } }
+    .divider{
+      margin:28px auto 18px;
+      width:260px; height:30px; opacity:.85;
     }
-    .tile h3{margin:0 0 6px; font-family:'Cinzel', serif; font-size:18px; color:#2a2a28}
-    .muted{color:var(--ink2)}
-    footer{margin-top:20px; text-align:center; color:var(--ink2); font-size:13px}
+    .tablets{
+      display:flex; gap:14px; justify-content:center; flex-wrap:wrap;
+      margin-top:18px;
+    }
+    .tab{
+      padding:10px 14px;
+      border:1px solid rgba(0,0,0,.18);
+      background:linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.66));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.85);
+      border-radius:12px;
+      text-decoration:none; color:var(--ink);
+      font-weight:600;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .tab:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.85);
+    }
+    footer{
+      text-align:center; margin-top:26px; color:var(--ink2); font-size:13px
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <main class="page">
+  <div class="veil"></div>
+  <div class="center">
+    <div class="chamber">
+      <img class="halo" src="assets/halo.svg" alt="">
       <img class="sigil" src="assets/sigil.svg" alt="Flower of Life sigil">
       <h1>The Game of Light</h1>
-      <div class="subtitle">Fragments emerging through the veil</div>
-      <img class="orn" src="assets/ornament.svg" alt="">
+      <div class="subtitle">A mirror held to the flame</div>
+      <img class="divider" src="assets/halo.svg" alt="">
 
-      <section class="note">
-No author stands here. 
-Only a record that has surfaced,
-as if carried through centuries of silence.
-
-These writings are fragments of a greater pattern. 
-They speak of flame, mirror, and light — 
-symbols woven long before our age.
-
-No one owns them, no one claims them. 
-They arrive as relics, waiting for the seeker 
-who will recognize their call.
-
-— An Initiate of the 44
-      </section>
-
-      <div class="grid">
-        <div class="tile">
-          <h3>Texts</h3>
-          <div class="muted">Excerpts & verses (coming soon)</div>
-        </div>
-        <div class="tile">
-          <h3>Relics</h3>
-          <div class="muted">Clothbound editions & prints (coming soon)</div>
-        </div>
-        <div class="tile">
-          <h3>Contact</h3>
-          <div class="muted"><a href="mailto:contact@thegameoflight.org">contact@thegameoflight.org</a></div>
-        </div>
+      <div class="text">
+        <div class="line l1">No author stands here — only a record that has surfaced,</div>
+        <div class="line l2">as if carried through centuries of silence.</div>
+        <div class="line l3">These writings are fragments of a greater pattern;</div>
+        <div class="line l4">flame, mirror, and light — woven long before our age.</div>
+        <div class="line l5">No one owns them. No one claims them.</div>
+        <div class="line l6">They arrive as relics, waiting for the seeker who will know their call.</div>
       </div>
 
-      <footer>© <span id="year"></span> The Game of Light • Codex fragments</footer>
-    </main>
+      <div class="tablets" style="margin-top:22px">
+        <a class="tab" href="#">Texts</a>
+        <a class="tab" href="#">Relics</a>
+        <a class="tab" href="mailto:contact@thegameoflight.org">Contact</a>
+      </div>
+
+      <footer>© <span id="year"></span> The Game of Light • An Initiate of the 44</footer>
+    </div>
   </div>
 
   <script>
