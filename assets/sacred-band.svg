@@ -1,30 +1,160 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 200">
-  <defs><linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0%" stop-color="#f3e8bd"/><stop offset="100%" stop-color="#b89a57"/></linearGradient></defs>
-  <rect x="0" y="0" width="1600" height="200" fill="none"/>
-  <g fill="none" stroke="url(#gold)" stroke-width="1.6" opacity="0.95">
-<g transform="translate(80,100)"><ellipse cx="0" cy="0" rx="56" ry="92"/><ellipse cx="0" cy="0" rx="56" ry="92" transform="rotate(90)"/></g>
-<g transform="translate(240,100)"><ellipse cx="0" cy="0" rx="56" ry="92"/><ellipse cx="0" cy="0" rx="56" ry="92" transform="rotate(90)"/></g>
-<g transform="translate(400,100)"><ellipse cx="0" cy="0" rx="56" ry="92"/><ellipse cx="0" cy="0" rx="56" ry="92" transform="rotate(90)"/></g>
-<g transform="translate(560,100)"><ellipse cx="0" cy="0" rx="56" ry="92"/><ellipse cx="0" cy="0" rx="56" ry="92" transform="rotate(90)"/></g>
-<g transform="translate(720,100)"><ellipse cx="0" cy="0" rx="56" ry="92"/><ellipse cx="0" cy="0" rx="56" ry="92" transform="rotate(90)"/></g>
-<g transform="translate(880,100)"><ellipse cx="0" cy="0" rx="56" ry="92"/><ellipse cx="0" cy="0" rx="56" ry="92" transform="rotate(90)"/></g>
-<g transform="translate(1040,100)"><ellipse cx="0" cy="0" rx="56" ry="92"/><ellipse cx="0" cy="0" rx="56" ry="92" transform="rotate(90)"/></g>
-<g transform="translate(1200,100)"><ellipse cx="0" cy="0" rx="56" ry="92"/><ellipse cx="0" cy="0" rx="56" ry="92" transform="rotate(90)"/></g>
-<g transform="translate(1360,100)"><ellipse cx="0" cy="0" rx="56" ry="92"/><ellipse cx="0" cy="0" rx="56" ry="92" transform="rotate(90)"/></g>
-<g transform="translate(1520,100)"><ellipse cx="0" cy="0" rx="56" ry="92"/><ellipse cx="0" cy="0" rx="56" ry="92" transform="rotate(90)"/></g>
-<g transform="translate(160,100)"><circle cx="0" cy="0" r="22"/><circle cx="0" cy="-22" r="22"/><circle cx="0" cy="22" r="22"/><circle cx="-19" cy="-11" r="22"/><circle cx="19" cy="-11" r="22"/><circle cx="-19" cy="11" r="22"/><circle cx="19" cy="11" r="22"/></g>
-<g transform="translate(320,100)"><circle cx="0" cy="0" r="22"/><circle cx="0" cy="-22" r="22"/><circle cx="0" cy="22" r="22"/><circle cx="-19" cy="-11" r="22"/><circle cx="19" cy="-11" r="22"/><circle cx="-19" cy="11" r="22"/><circle cx="19" cy="11" r="22"/></g>
-<g transform="translate(480,100)"><circle cx="0" cy="0" r="22"/><circle cx="0" cy="-22" r="22"/><circle cx="0" cy="22" r="22"/><circle cx="-19" cy="-11" r="22"/><circle cx="19" cy="-11" r="22"/><circle cx="-19" cy="11" r="22"/><circle cx="19" cy="11" r="22"/></g>
-<g transform="translate(640,100)"><circle cx="0" cy="0" r="22"/><circle cx="0" cy="-22" r="22"/><circle cx="0" cy="22" r="22"/><circle cx="-19" cy="-11" r="22"/><circle cx="19" cy="-11" r="22"/><circle cx="-19" cy="11" r="22"/><circle cx="19" cy="11" r="22"/></g>
-<g transform="translate(800,100)"><circle cx="0" cy="0" r="22"/><circle cx="0" cy="-22" r="22"/><circle cx="0" cy="22" r="22"/><circle cx="-19" cy="-11" r="22"/><circle cx="19" cy="-11" r="22"/><circle cx="-19" cy="11" r="22"/><circle cx="19" cy="11" r="22"/></g>
-<g transform="translate(960,100)"><circle cx="0" cy="0" r="22"/><circle cx="0" cy="-22" r="22"/><circle cx="0" cy="22" r="22"/><circle cx="-19" cy="-11" r="22"/><circle cx="19" cy="-11" r="22"/><circle cx="-19" cy="11" r="22"/><circle cx="19" cy="11" r="22"/></g>
-<g transform="translate(1120,100)"><circle cx="0" cy="0" r="22"/><circle cx="0" cy="-22" r="22"/><circle cx="0" cy="22" r="22"/><circle cx="-19" cy="-11" r="22"/><circle cx="19" cy="-11" r="22"/><circle cx="-19" cy="11" r="22"/><circle cx="19" cy="11" r="22"/></g>
-<g transform="translate(1280,100)"><circle cx="0" cy="0" r="22"/><circle cx="0" cy="-22" r="22"/><circle cx="0" cy="22" r="22"/><circle cx="-19" cy="-11" r="22"/><circle cx="19" cy="-11" r="22"/><circle cx="-19" cy="11" r="22"/><circle cx="19" cy="11" r="22"/></g>
-<g transform="translate(1440,100)"><circle cx="0" cy="0" r="22"/><circle cx="0" cy="-22" r="22"/><circle cx="0" cy="22" r="22"/><circle cx="-19" cy="-11" r="22"/><circle cx="19" cy="-11" r="22"/><circle cx="-19" cy="11" r="22"/><circle cx="19" cy="11" r="22"/></g>
-<g transform="translate(1600,100)"><circle cx="0" cy="0" r="22"/><circle cx="0" cy="-22" r="22"/><circle cx="0" cy="22" r="22"/><circle cx="-19" cy="-11" r="22"/><circle cx="19" cy="-11" r="22"/><circle cx="-19" cy="11" r="22"/><circle cx="19" cy="11" r="22"/></g>
-<g transform="translate(80,12)"><rect x="0" y="0" width="130" height="80" rx="1"/><rect x="130" y="0" width="80" height="80" rx="1"/><path d="M130,80 A80,80 0 0 0 210,0"/></g>
-<g transform="translate(800,12)"><rect x="0" y="0" width="130" height="80" rx="1"/><rect x="130" y="0" width="80" height="80" rx="1"/><path d="M130,80 A80,80 0 0 0 210,0"/></g>
-<g transform="translate(1520,12)"><rect x="0" y="0" width="130" height="80" rx="1"/><rect x="130" y="0" width="80" height="80" rx="1"/><path d="M130,80 A80,80 0 0 0 210,0"/></g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 180">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f3e8bd"/>
+      <stop offset="100%" stop-color="#b89a57"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#gold)" stroke-width="1.4" opacity="0.9">
+    <!-- Vesica Piscis chain -->
+    <g opacity="0.9">
+      <!-- repeated every 160 px -->
+      <g transform="translate(80,90)">
+        <ellipse cx="0" cy="0" rx="56" ry="92"/>
+        <ellipse cx="0" cy="0" rx="56" ry="92" transform="rotate(90)"/>
+      </g>
+      <g transform="translate(240,90)">
+        <ellipse cx="0" cy="0" rx="56" ry="92"/>
+        <ellipse cx="0" cy="0" rx="56" ry="92" transform="rotate(90)"/>
+      </g>
+      <g transform="translate(400,90)">
+        <ellipse cx="0" cy="0" rx="56" ry="92"/>
+        <ellipse cx="0" cy="0" rx="56" ry="92" transform="rotate(90)"/>
+      </g>
+      <g transform="translate(560,90)">
+        <ellipse cx="0" cy="0" rx="56" ry="92"/>
+        <ellipse cx="0" cy="0" rx="56" ry="92" transform="rotate(90)"/>
+      </g>
+      <g transform="translate(720,90)">
+        <ellipse cx="0" cy="0" rx="56" ry="92"/>
+        <ellipse cx="0" cy="0" rx="56" ry="92" transform="rotate(90)"/>
+      </g>
+      <g transform="translate(880,90)">
+        <ellipse cx="0" cy="0" rx="56" ry="92"/>
+        <ellipse cx="0" cy="0" rx="56" ry="92" transform="rotate(90)"/>
+      </g>
+      <g transform="translate(1040,90)">
+        <ellipse cx="0" cy="0" rx="56" ry="92"/>
+        <ellipse cx="0" cy="0" rx="56" ry="92" transform="rotate(90)"/>
+      </g>
+      <g transform="translate(1200,90)">
+        <ellipse cx="0" cy="0" rx="56" ry="92"/>
+        <ellipse cx="0" cy="0" rx="56" ry="92" transform="rotate(90)"/>
+      </g>
+      <g transform="translate(1360,90)">
+        <ellipse cx="0" cy="0" rx="56" ry="92"/>
+        <ellipse cx="0" cy="0" rx="56" ry="92" transform="rotate(90)"/>
+      </g>
+      <g transform="translate(1520,90)">
+        <ellipse cx="0" cy="0" rx="56" ry="92"/>
+        <ellipse cx="0" cy="0" rx="56" ry="92" transform="rotate(90)"/>
+      </g>
+    </g>
+
+    <!-- Seed of Life mini motifs between vesicas -->
+    <g opacity="0.9" stroke-width="1.2">
+      <!-- place at every 160px offset +80 -->
+      <g transform="translate(160,90)">
+        <circle cx="0" cy="0" r="22"/>
+        <circle cx="0" cy="-22" r="22"/>
+        <circle cx="0" cy="22" r="22"/>
+        <circle cx="-19" cy="-11" r="22"/>
+        <circle cx="19" cy="-11" r="22"/>
+        <circle cx="-19" cy="11" r="22"/>
+        <circle cx="19" cy="11" r="22"/>
+      </g>
+      <g transform="translate(320,90)">
+        <circle cx="0" cy="0" r="22"/>
+        <circle cx="0" cy="-22" r="22"/>
+        <circle cx="0" cy="22" r="22"/>
+        <circle cx="-19" cy="-11" r="22"/>
+        <circle cx="19" cy="-11" r="22"/>
+        <circle cx="-19" cy="11" r="22"/>
+        <circle cx="19" cy="11" r="22"/>
+      </g>
+      <g transform="translate(480,90)">
+        <circle cx="0" cy="0" r="22"/>
+        <circle cx="0" cy="-22" r="22"/>
+        <circle cx="0" cy="22" r="22"/>
+        <circle cx="-19" cy="-11" r="22"/>
+        <circle cx="19" cy="-11" r="22"/>
+        <circle cx="-19" cy="11" r="22"/>
+        <circle cx="19" cy="11" r="22"/>
+      </g>
+      <g transform="translate(640,90)">
+        <circle cx="0" cy="0" r="22"/>
+        <circle cx="0" cy="-22" r="22"/>
+        <circle cx="0" cy="22" r="22"/>
+        <circle cx="-19" cy="-11" r="22"/>
+        <circle cx="19" cy="-11" r="22"/>
+        <circle cx="-19" cy="11" r="22"/>
+        <circle cx="19" cy="11" r="22"/>
+      </g>
+      <g transform="translate(800,90)">
+        <circle cx="0" cy="0" r="22"/>
+        <circle cx="0" cy="-22" r="22"/>
+        <circle cx="0" cy="22" r="22"/>
+        <circle cx="-19" cy="-11" r="22"/>
+        <circle cx="19" cy="-11" r="22"/>
+        <circle cx="-19" cy="11" r="22"/>
+        <circle cx="19" cy="11" r="22"/>
+      </g>
+      <g transform="translate(960,90)">
+        <circle cx="0" cy="0" r="22"/>
+        <circle cx="0" cy="-22" r="22"/>
+        <circle cx="0" cy="22" r="22"/>
+        <circle cx="-19" cy="-11" r="22"/>
+        <circle cx="19" cy="-11" r="22"/>
+        <circle cx="-19" cy="11" r="22"/>
+        <circle cx="19" cy="11" r="22"/>
+      </g>
+      <g transform="translate(1120,90)">
+        <circle cx="0" cy="0" r="22"/>
+        <circle cx="0" cy="-22" r="22"/>
+        <circle cx="0" cy="22" r="22"/>
+        <circle cx="-19" cy="-11" r="22"/>
+        <circle cx="19" cy="-11" r="22"/>
+        <circle cx="-19" cy="11" r="22"/>
+        <circle cx="19" cy="11" r="22"/>
+      </g>
+      <g transform="translate(1280,90)">
+        <circle cx="0" cy="0" r="22"/>
+        <circle cx="0" cy="-22" r="22"/>
+        <circle cx="0" cy="22" r="22"/>
+        <circle cx="-19" cy="-11" r="22"/>
+        <circle cx="19" cy="-11" r="22"/>
+        <circle cx="-19" cy="11" r="22"/>
+        <circle cx="19" cy="11" r="22"/>
+      </g>
+      <g transform="translate(1440,90)">
+        <circle cx="0" cy="0" r="22"/>
+        <circle cx="0" cy="-22" r="22"/>
+        <circle cx="0" cy="22" r="22"/>
+        <circle cx="-19" cy="-11" r="22"/>
+        <circle cx="19" cy="-11" r="22"/>
+        <circle cx="-19" cy="11" r="22"/>
+        <circle cx="19" cy="11" r="22"/>
+      </g>
+    </g>
+
+    <!-- Golden ratio rectangles and Fibonacci spiral hint (minimal arc) -->
+    <g opacity="0.9" stroke-width="1.2">
+      <!-- repeat motif at left, center, right -->
+      <g transform="translate(80,16)">
+        <rect x="0" y="0" width="130" height="80" rx="1"/>
+        <rect x="130" y="0" width="80" height="80" rx="1"/>
+        <path d="M130,80 A80,80 0 0 0 210,0" />
+      </g>
+      <g transform="translate(760,16)">
+        <rect x="0" y="0" width="130" height="80" rx="1"/>
+        <rect x="130" y="0" width="80" height="80" rx="1"/>
+        <path d="M130,80 A80,80 0 0 0 210,0" />
+      </g>
+      <g transform="translate(1440,16)">
+        <rect x="0" y="0" width="130" height="80" rx="1"/>
+        <rect x="130" y="0" width="80" height="80" rx="1"/>
+        <path d="M130,80 A80,80 0 0 0 210,0" />
+      </g>
+    </g>
   </g>
 </svg>

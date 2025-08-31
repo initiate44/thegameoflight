@@ -1,11 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-  <defs><linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0%" stop-color="#f3e8bd"/><stop offset="100%" stop-color="#b89a57"/></linearGradient></defs>
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f3e8bd"/>
+      <stop offset="100%" stop-color="#b89a57"/>
+    </linearGradient>
+  </defs>
   <circle cx="200" cy="200" r="170" fill="none" stroke="url(#gold)" stroke-width="6"/>
   <g stroke="url(#gold)" stroke-width="3">
-    <line x1="200" y1="22" x2="200" y2="42"/>
+    <line x1="200" y1="22"  x2="200" y2="42"/>
     <line x1="200" y1="358" x2="200" y2="378"/>
-    <line x1="22" y1="200" x2="42" y2="200"/>
+    <line x1="22"  y1="200" x2="42"  y2="200"/>
     <line x1="358" y1="200" x2="378" y2="200"/>
   </g>
   <g fill="none" stroke="url(#gold)" stroke-width="2">

@@ -8,7 +8,7 @@
   <meta property="og:description" content="Fragments from the Codex — verses gathered toward a book of light." />
   <meta property="og:type" content="website" />
   
-  <link rel="icon" href="assets/favicon.ico?v=2" />
+  <link rel="icon" href="assets/favicon.ico" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Crimson+Pro:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     html,body{height:100%}
@@ -18,39 +18,69 @@
       font-family:'Crimson Pro', Georgia, serif; line-height:1.85;
       position:relative; overflow-x:hidden; color:#1e1c16;
     }
+    /* sparse stars */
     canvas#stars{position:fixed; inset:0; pointer-events:none; opacity:.5; mix-blend-mode:screen}
-    .veil{pointer-events:none; position:fixed; inset:0;
-      background: radial-gradient(1600px 1200px at 50% 40%, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 40%),
-                  radial-gradient(1400px 1000px at 50% 60%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.6) 80%, rgba(0,0,0,0.82) 100%);}
-    .bloom{pointer-events:none; position:fixed; inset:0;
-      background: radial-gradient(540px 400px at 50% 46%, rgba(255,248,224,0.32), rgba(255,248,224,0.12) 52%, rgba(255,248,224,0) 74%);
-      mix-blend-mode:screen;}
-    .sacred-band{pointer-events:none; position:fixed; left:0; right:0; top:66vh; height:200px;
-      background: url('assets/sacred-band.svg?v=2') center/1600px 200px repeat-x;
-      mix-blend-mode:overlay; opacity:.95; filter: drop-shadow(0 12px 28px rgba(0,0,0,0.5));}
+    /* dark veil */
+    .veil{
+      pointer-events:none; position:fixed; inset:0;
+      background:
+        radial-gradient(1600px 1200px at 50% 40%, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 40%),
+        radial-gradient(1400px 1000px at 50% 60%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.6) 80%, rgba(0,0,0,0.82) 100%);
+    }
+    /* center bloom */
+    .bloom{
+      pointer-events:none; position:fixed; inset:0;
+      background: radial-gradient(520px 380px at 50% 46%, rgba(255,248,224,0.30) 0%, rgba(255,248,224,0.12) 50%, rgba(255,248,224,0) 72%);
+      mix-blend-mode:screen;
+    }
+    /* Sacred geometry horizon band at ~66% viewport height */
+    .sacred-band{
+      pointer-events:none; position:fixed; left:0; right:0;
+      top:66vh; height:180px;
+      display:block; opacity:0.9;
+      background: url('assets/sacred-band.svg') center/1600px 180px repeat-x;
+      mix-blend-mode:overlay;
+      filter: drop-shadow(0 10px 24px rgba(0,0,0,0.45));
+    }
     .wrap{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:90px 24px;}
-    .codex{width:min(900px,94vw); text-align:center; background:linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,.54));
-      border:1px solid rgba(255,255,255,.24); border-radius:20px; padding:40px 30px;
-      box-shadow: 0 44px 160px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.45) inset, 0 0 96px rgba(255,240,210,.28);
-      backdrop-filter: blur(1.6px) saturate(112%);}
+    .codex{
+      width:min(900px,94vw); text-align:center;
+      background:linear-gradient(180deg, rgba(255,255,255,.68), rgba(255,255,255,.54));
+      border:1px solid rgba(255,255,255,.22); border-radius:20px; padding:40px 30px;
+      box-shadow: 0 44px 160px rgba(0,0,0,.72), 0 0 0 1px rgba(255,255,255,.45) inset, 0 0 90px rgba(255,240,210,.25);
+      backdrop-filter: blur(1.5px) saturate(110%);
+    }
     .sigil{ width:160px; height:160px; margin:0 auto 14px; filter: drop-shadow(0 10px 34px rgba(205,182,122,.28)); }
     h1{ font-family:'Cinzel', serif; font-weight:700; color:#1b1915; letter-spacing:.8px; font-size:clamp(34px,6vw,68px); margin:0 0 10px; text-shadow:0 1px 0 rgba(255,255,255,.45); }
     .subtitle{ font-family:'Cinzel', serif; font-size:clamp(16px,2.4vw,20px); color:#4a463c; margin-bottom:20px; }
     .orn{display:block; margin:16px auto 24px; width:220px; opacity:.95}
     .text{ font-size:clamp(16px, 2.2vw, 20px); color:#1e1c16; white-space:pre-wrap; margin-bottom:26px; }
     .tablets{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:10px; }
-    .tab{ font-family:'Cinzel', serif; padding:10px 16px; border-radius:12px; border:1px solid rgba(0,0,0,.28);
-      background:linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.7)); text-decoration:none; color:#1e1c16; font-weight:600; font-size:17px; box-shadow: 0 8px 26px rgba(0,0,0,.28); }
+    .tab{
+      font-family:'Cinzel', serif; padding:10px 16px; border-radius:12px;
+      border:1px solid rgba(0,0,0,.28);
+      background:linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.7));
+      text-decoration:none; color:#1e1c16; font-weight:600; font-size:17px;
+      box-shadow: 0 8px 26px rgba(0,0,0,.28);
+    }
     footer{ margin-top:24px; font-size:14px; color:#4a463c }
   </style>
   <script>
+    // sparse starfield
     (function(){
-      const c=document.createElement('canvas'); c.id='stars'; document.addEventListener('DOMContentLoaded',()=>document.body.appendChild(c));
-      const ctx=c.getContext('2d'); let w,h,dpr=Math.min(2,window.devicePixelRatio||1), stars=[];
+      const c = document.createElement('canvas'); c.id='stars'; document.addEventListener('DOMContentLoaded',()=>document.body.appendChild(c));
+      const ctx = c.getContext('2d'); let w,h,dpr=Math.min(2,window.devicePixelRatio||1), stars=[];
       function resize(){ w=c.width=innerWidth*dpr; h=c.height=innerHeight*dpr; c.style.width=innerWidth+'px'; c.style.height=innerHeight+'px';
-        const N=Math.max(80,Math.floor(innerWidth*innerHeight/26000)); stars=Array.from({length:N},()=>({x:Math.random()*w,y:Math.random()*h,r:(Math.random()*1.1+.35)*dpr,a:Math.random()*6.283,s:Math.random()*0.5+0.1}))}
-      function draw(){ ctx.clearRect(0,0,w,h); for(const s of stars){ s.a+=0.004*s.s; const tw=0.5+Math.sin(s.a)*0.5; ctx.beginPath(); ctx.arc(s.x,s.y,s.r*tw,0,6.283); ctx.fillStyle='rgba(255,255,255,'+(0.42*tw)+')'; ctx.fill(); } requestAnimationFrame(draw); }
-      addEventListener('resize',resize,{passive:true}); resize(); draw();
+        const N = Math.max(80, Math.floor(innerWidth*innerHeight/26000)); // sparse
+        stars = Array.from({length:N}, ()=>({x:Math.random()*w, y:Math.random()*h, r:(Math.random()*1.1+.35)*dpr, a:Math.random()*6.283, s:Math.random()*0.5+0.1}));
+      }
+      function draw(){ ctx.clearRect(0,0,w,h);
+        for(const s of stars){ s.a += 0.004*s.s; const tw=0.5+Math.sin(s.a)*0.5;
+          ctx.beginPath(); ctx.arc(s.x,s.y,s.r*tw,0,6.283); ctx.fillStyle='rgba(255,255,255,'+(0.42*tw)+')'; ctx.fill();
+        }
+        requestAnimationFrame(draw);
+      }
+      addEventListener('resize', resize, {passive:true}); resize(); draw();
     })();
   </script>
 
@@ -61,10 +91,10 @@
   <div class="bloom"></div>
   <div class="wrap">
     <main class="codex">
-      <img class="sigil" src="assets/sacred-sigil.svg?v=2" alt="Sacred Sigil">
+      <img class="sigil" src="assets/sacred-sigil.svg" alt="Sacred Sigil">
       <h1>Texts</h1>
       <div class="subtitle">Fragments from the Codex</div>
-      <img class="orn" src="assets/ornament.svg?v=2" alt="">
+      <img class="orn" src="assets/ornament.svg" alt="">
       <section class="text" style="text-align:left;">
 <strong>Fragment I</strong>
 Through the flame, the mirror is revealed.
@@ -89,11 +119,11 @@ And the fragments will become
 a book of light.
       </section>
       <div class="tablets">
-        <a class="tab" href="index.html?v=2">Codex</a>
-        <a class="tab" href="texts.html?v=2" aria-current="page">Texts</a>
+        <a class="tab" href="index.html">Codex</a>
+        <a class="tab" href="texts.html" aria-current="page">Texts</a>
         <a class="tab" href="mailto:contact@thegameoflight.org">Contact</a>
       </div>
-      <footer>These are fragments. The Codex will carry them whole. · © <span id="year"></span> The Game of Light • v2</footer>
+      <footer>These are fragments. The Codex will carry them whole. · © <span id="year"></span> The Game of Light</footer>
     </main>
   </div>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
