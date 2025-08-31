@@ -8,89 +8,129 @@
   <meta property="og:title" content="The Game of Light — Texts" />
   <meta property="og:description" content="Fragments from the Codex — verses gathered toward a book of light." />
   <meta property="og:type" content="website" />
+  
   <link rel="icon" href="assets/favicon.ico" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Crimson+Pro:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    :root{ --ink:#1e1c16; --ink2:#4a463c; }
+    :root{ --ink:#eae7e0; --ink2:#b9b3a6; --panel:#ffffff; }
+    html,body{height:100%}
     body{
-      margin:0; color:var(--ink);
-      background:url('assets/parchment.jpg') center/cover fixed no-repeat;
+      margin:0; color:#1e1c16;
+      background: radial-gradient(1400px 1000px at 50% -20%, #0a0d13 0%, #04060a 60%, #020308 100%);
       font-family:'Crimson Pro', Georgia, serif; line-height:1.85;
+      position:relative; overflow-x:hidden;
     }
-    .wrap{min-height:100vh; padding:60px 20px; display:flex; align-items:center; justify-content:center;}
-    .page{
-      width:min(940px, 96vw);
-      background:rgba(255,255,255,.55);
-      border:1px solid rgba(0,0,0,.08);
-      border-radius:18px;
-      padding:34px 26px;
-      box-shadow:0 20px 60px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.6);
+    /* Sparse star canvas */
+    canvas#stars{position:fixed; inset:0; pointer-events:none; opacity:.55; mix-blend-mode:screen}
+    /* Deep perimeter darkness */
+    .veil{
+      pointer-events:none; position:fixed; inset:0;
+      background: radial-gradient(1600px 1200px at 50% 50%,
+        rgba(255,255,255,0.06) 0%,
+        rgba(0,0,0,0) 40%),
+      radial-gradient(1400px 1000px at 50% 50%,
+        rgba(0,0,0,0) 45%,
+        rgba(0,0,0,0.55) 80%,
+        rgba(0,0,0,0.78) 100%);
+      mix-blend-mode:normal;
     }
-    header{text-align:center; margin-bottom:14px}
-    .sigil{ width:120px; height:120px; display:block; margin:0 auto 10px }
-    h1{ margin:0 0 6px; font-family:'Cinzel', serif; font-weight:700; font-size:clamp(28px,5.5vw,54px); letter-spacing:.6px; }
-    .subtitle{ color:var(--ink2); font-family:'Cinzel',serif; font-size:clamp(14px,2.4vw,18px) }
-    .orn{ display:block; width:220px; margin:14px auto 10px; opacity:.9 }
-    nav{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:10px 0 18px; }
-    .pill{
-      font-family:'Cinzel', serif; padding:8px 14px; border-radius:999px;
-      border:1px solid rgba(0,0,0,.18);
-      background:linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.68));
-      text-decoration:none; color:inherit; font-weight:600; font-size:16px;
+    /* Center bloom of light for the parchment card */
+    .bloom{
+      pointer-events:none; position:fixed; inset:0;
+      background: radial-gradient(520px 380px at 50% 50%,
+        rgba(255,248,224,0.28),
+        rgba(255,248,224,0.12) 50%,
+        rgba(255,248,224,0) 70%);
+      mix-blend-mode:screen;
     }
-    .verses{ margin-top:10px }
-    .fragment{
-      background:linear-gradient(180deg, rgba(255,255,255,.68), rgba(255,255,255,.58));
-      border:1px solid rgba(0,0,0,.06); border-radius:14px;
-      padding:18px 16px; box-shadow:inset 0 1px 0 rgba(255,255,255,.8);
-      margin:14px 0; white-space:pre-wrap; font-size:clamp(16px, 2.2vw, 20px);
+    .wrap{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:84px 24px;}
+    .codex{
+      width:min(900px, 94vw);
+      text-align:center;
+      background:linear-gradient(180deg, rgba(255,255,255,.66), rgba(255,255,255,.52));
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:20px; padding:40px 30px;
+      box-shadow: 0 36px 140px rgba(0,0,0,.65), 0 0 0 1px rgba(255,255,255,.45) inset, 0 0 80px rgba(255,240,210,.25);
+      backdrop-filter: blur(1.5px) saturate(110%);
     }
-    footer{ text-align:center; color:var(--ink2); font-size:13px; margin-top:18px }
+    .sigil{ width:160px; height:160px; margin:0 auto 14px; filter: drop-shadow(0 10px 34px rgba(205,182,122,.28)); }
+    h1{
+      font-family:'Cinzel', serif; font-weight:700;
+      color:#1b1915; letter-spacing:.8px;
+      font-size:clamp(34px, 6vw, 68px); margin:0 0 10px;
+      text-shadow: 0 1px 0 rgba(255,255,255,.45);
+    }
+    .subtitle{ font-family:'Cinzel', serif; font-size:clamp(16px, 2.4vw, 20px); color:#4a463c; margin-bottom:20px; }
+    .orn{display:block; margin:16px auto 24px; width:220px; opacity:.95}
+    .text{ font-size:clamp(16px, 2.2vw, 20px); color:#1e1c16; white-space:pre-wrap; margin-bottom:26px; }
+    .tablets{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:10px; }
+    .tab{
+      font-family:'Cinzel', serif; padding:10px 16px; border-radius:12px;
+      border:1px solid rgba(0,0,0,.28);
+      background:linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.7));
+      text-decoration:none; color:#1e1c16; font-weight:600; font-size:17px;
+      box-shadow: 0 8px 26px rgba(0,0,0,.28);
+    }
+    footer{ margin-top:24px; font-size:14px; color:#4a463c }
   </style>
+  <script>
+    // Sparse starfield
+    (function(){
+      const c = document.createElement('canvas'); c.id='stars'; document.addEventListener('DOMContentLoaded',()=>document.body.appendChild(c));
+      const ctx = c.getContext('2d'); let w,h,dpr= Math.min(2, window.devicePixelRatio||1), stars=[];
+      function resize(){ w=c.width=innerWidth*dpr; h=c.height=innerHeight*dpr; c.style.width=innerWidth+'px'; c.style.height=innerHeight+'px';
+        const N = Math.max(90, Math.floor(innerWidth*innerHeight/25000)); // sparse
+        stars = Array.from({length:N}, ()=>({x:Math.random()*w, y:Math.random()*h, r:(Math.random()*1.2+.3)*dpr, a:Math.random()*Math.PI*2, s:Math.random()*0.5+0.1}));
+      }
+      function draw(){ ctx.clearRect(0,0,w,h);
+        for(const s of stars){ s.a += 0.004*s.s; const tw=0.5+Math.sin(s.a)*0.5;
+          ctx.beginPath(); ctx.arc(s.x,s.y,s.r*tw,0,Math.PI*2); ctx.fillStyle='rgba(255,255,255,'+(0.4*tw)+')'; ctx.fill();
+        }
+        requestAnimationFrame(draw);
+      }
+      addEventListener('resize', resize, {passive:true}); resize(); draw();
+    })();
+  </script>
+
 </head>
 <body>
+  <div class="veil"></div>
+  <div class="bloom"></div>
   <div class="wrap">
-    <main class="page">
-      <header>
-        <img class="sigil" src="assets/sacred-sigil.svg" alt="Sacred Sigil">
-        <h1>Texts</h1>
-        <div class="subtitle">Fragments from the Codex</div>
-        <img class="orn" src="assets/ornament.svg" alt="">
-        <nav>
-          <a class="pill" href="index.html">Codex</a>
-          <a class="pill" href="texts.html" aria-current="page">Texts</a>
-          <a class="pill" href="mailto:contact@thegameoflight.org">Contact</a>
-        </nav>
-      </header>
-
-      <section class="verses">
-        <article class="fragment"><strong>Fragment I</strong>
+    <main class="codex">
+      <img class="sigil" src="assets/sacred-sigil.svg" alt="Sacred Sigil">
+      <h1>Texts</h1>
+      <div class="subtitle">Fragments from the Codex</div>
+      <img class="orn" src="assets/ornament.svg" alt="">
+      <section class="text" style="text-align:left;">
+<strong>Fragment I</strong>
 Through the flame, the mirror is revealed.
 Through the mirror, the seeker is seen.
-The path narrows, and yet the light endures.</article>
+The path narrows, and yet the light endures.
 
-        <article class="fragment"><strong>Fragment II</strong>
+<strong>Fragment II</strong>
 The pattern is not written in stone,
 but in the breath between all things.
-Each thread is unseen, until drawn to the whole.</article>
+Each thread is unseen, until drawn to the whole.
 
-        <article class="fragment"><strong>Fragment III</strong>
+<strong>Fragment III</strong>
 No shadow is without form.
 No flame is without reflection.
 The seeker learns:
-to step forward is already to arrive.</article>
+to step forward is already to arrive.
 
-        <article class="fragment"><strong>Fragment IV</strong>
+<strong>Fragment IV</strong>
 What was scattered is gathered.
 What was hidden is bound.
 And the fragments will become
-a book of light.</article>
+a book of light.
       </section>
-
-      <footer>
-        <div>These are fragments. The Codex will carry them whole.</div>
-        <div style="margin-top:6px">© <span id="year"></span> The Game of Light</div>
-      </footer>
+      <div class="tablets">
+        <a class="tab" href="index.html">Codex</a>
+        <a class="tab" href="texts.html" aria-current="page">Texts</a>
+        <a class="tab" href="mailto:contact@thegameoflight.org">Contact</a>
+      </div>
+      <footer>These are fragments. The Codex will carry them whole. · © <span id="year"></span> The Game of Light</footer>
     </main>
   </div>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
