@@ -8,58 +8,58 @@
   <meta property="og:title" content="The Game of Light — Codex" />
   <meta property="og:description" content="Fragments of a greater pattern. The Game of Light — relics emerging through the veil." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/og.jpg?v=6" />
+  <meta property="og:image" content="assets/og.jpg?v=7" />
   
-  <link rel="icon" href="assets/favicon.ico?v=6" />
+  <link rel="icon" href="assets/favicon.ico?v=7" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Crimson+Pro:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     html,body{height:100%}
     body{
       margin:0;
-      background: radial-gradient(1400px 1000px at 50% -20%, #0a0d13 0%, #05070c 60%, #03050a 100%);
+      /* simpler, seam-free space: very dark with gentle radial only */
+      background: radial-gradient(1200px 900px at 50% 30%, #0b0f18 0%, #070a12 60%, #05070c 100%);
       font-family:'Crimson Pro', Georgia, serif; line-height:1.85;
-      position:relative; overflow-x:hidden; color:#1e1c16;
+      position:relative; overflow-x:hidden; color:#1b1915;
     }
-    /* sparse stars */
+    /* stars (sparse) */
     canvas#stars{position:fixed; inset:0; pointer-events:none; opacity:.55; mix-blend-mode:screen; z-index:0}
-    /* dark perimeter */
+    /* veil (soft perimeter only, no horizontal bands) */
     .veil{pointer-events:none; position:fixed; inset:0; z-index:1;
-      background:
-        radial-gradient(1600px 1200px at 50% 40%, rgba(255,255,255,0.06) 0%, rgba(0,0,0,0) 40%),
-        radial-gradient(1400px 1000px at 50% 60%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.62) 80%, rgba(0,0,0,0.84) 100%);
+      background: radial-gradient(1600px 1200px at 50% 45%, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 42%),
+                  radial-gradient(1600px 1200px at 50% 55%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.65) 78%, rgba(0,0,0,0.84) 100%);
     }
-    /* SHARP SUNBURST RAYS */
+    /* sharp rays (above veil, below bloom/card) */
     .rays{pointer-events:none; position:fixed; inset:0; z-index:2;
-      background: url('assets/rays.svg?v=6') no-repeat center 46%/min(1600px, 140vw) auto;
-      mix-blend-mode:screen; opacity:.85;
-      /* soften extreme edges */
-      -webkit-mask-image: radial-gradient(900px 600px at 50% 46%, black 60%, rgba(0,0,0,0.7) 80%, transparent 100%);
-              mask-image: radial-gradient(900px 600px at 50% 46%, black 60%, rgba(0,0,0,0.7) 80%, transparent 100%);
+      background: url('assets/rays.svg?v=7') no-repeat center 46%/140vmax auto;
+      mix-blend-mode:screen; opacity:.9;
     }
-    /* Radiating bloom under text to fill gaps between rays */
+    /* bloom to fill gaps between rays */
     .bloom{pointer-events:none; position:fixed; inset:0; z-index:3;
       background:
-        radial-gradient(720px 520px at 50% 46%, rgba(255,248,224,0.36) 0%, rgba(255,248,224,0.14) 52%, rgba(255,248,224,0) 74%),
+        radial-gradient(740px 520px at 50% 46%, rgba(255,248,224,0.36) 0%, rgba(255,248,224,0.14) 52%, rgba(255,248,224,0) 74%),
         radial-gradient(1200px 900px at 50% 46%, rgba(255,248,224,0.10) 0%, rgba(255,248,224,0) 60%);
       mix-blend-mode:screen;
     }
     .wrap{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:90px 24px; position:relative; z-index:4;}
     .codex{
       width:min(900px,94vw); text-align:center;
-      background:linear-gradient(180deg, rgba(255,255,255,.74), rgba(255,255,255,.58));
-      border:1px solid rgba(255,255,255,.24); border-radius:20px; padding:40px 30px;
-      box-shadow: 0 44px 160px rgba(0,0,0,.78), 0 0 0 1px rgba(255,255,255,.45) inset, 0 0 110px rgba(255,240,210,.3);
-      backdrop-filter: blur(1.8px) saturate(114%);
+      /* remove gradient seams: use parchment + white overlay, no borders */
+      background:
+        linear-gradient(rgba(255,255,255,.80), rgba(255,255,255,.74)),
+        url('assets/parchment.jpg?v=7') center/800px auto repeat;
+      border: none; border-radius:20px; padding:40px 30px;
+      box-shadow: 0 44px 160px rgba(0,0,0,.78), 0 0 0 1px rgba(255,255,255,.35) inset, 0 0 110px rgba(255,240,210,.28);
+      backdrop-filter: blur(1.2px) saturate(110%);
     }
     .sigil{ width:160px; height:160px; margin:0 auto 14px; filter: drop-shadow(0 10px 34px rgba(205,182,122,.3)); }
-    h1{ font-family:'Cinzel', serif; font-weight:700; color:#1b1915; letter-spacing:.8px; font-size:clamp(34px,6vw,68px); margin:0 0 10px; text-shadow:0 1px 0 rgba(255,255,255,.45); }
+    h1{ font-family:'Cinzel', serif; font-weight:700; color:#14120f; letter-spacing:.8px; font-size:clamp(34px,6vw,68px); margin:0 0 10px; text-shadow:0 1px 0 rgba(255,255,255,.45); }
     .subtitle{ font-family:'Cinzel', serif; font-size:clamp(16px,2.4vw,20px); color:#4a463c; margin-bottom:20px; }
     .orn{display:block; margin:16px auto 24px; width:220px; opacity:.95}
-    .text{ font-size:clamp(16px, 2.2vw, 20px); color:#1e1c16; white-space:pre-wrap; margin-bottom:26px; }
+    .text{ font-size:clamp(16px, 2.2vw, 20px); color:#1b1915; white-space:pre-wrap; margin-bottom:26px; }
     .tablets{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:10px; }
     .tab{
       font-family:'Cinzel', serif; padding:10px 16px; border-radius:12px; border:1px solid rgba(0,0,0,.28);
-      background:linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.72));
+      background:linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,.72));
       text-decoration:none; color:#1e1c16; font-weight:600; font-size:17px;
       box-shadow: 0 8px 26px rgba(0,0,0,.28);
     }
@@ -83,10 +83,10 @@
   <div class="bloom"></div>
   <div class="wrap">
     <main class="codex">
-      <img class="sigil" src="assets/sacred-sigil.svg?v=6" alt="Sacred Sigil">
+      <img class="sigil" src="assets/sacred-sigil.svg?v=7" alt="Sacred Sigil">
       <h1>The Game of Light</h1>
       <div class="subtitle">Fragments emerging through the veil</div>
-      <img class="orn" src="assets/ornament.svg?v=6" alt="">
+      <img class="orn" src="assets/ornament.svg?v=7" alt="">
       <section class="text">
 A pattern reveals itself.
 Verses move like hidden currents,
@@ -104,11 +104,11 @@ as a book of light.
 — An Initiate of the 44
       </section>
       <div class="tablets">
-        <a class="tab" href="texts.html?v=6">Texts</a>
+        <a class="tab" href="texts.html?v=7">Texts</a>
         <a class="tab" href="#">Relics</a>
         <a class="tab" href="mailto:contact@thegameoflight.org">Contact</a>
       </div>
-      <footer>© <span id="year"></span> The Game of Light • Codex fragments • v6</footer>
+      <footer>© <span id="year"></span> The Game of Light • Codex fragments • v7</footer>
     </main>
   </div>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
