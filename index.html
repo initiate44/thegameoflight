@@ -4,31 +4,109 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Game of Light</title>
+  <meta name="description" content="The Game of Light — a signal in the dark." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="cosmos">
-    <svg id="geometry" viewBox="-1000 -1000 2000 2000" preserveAspectRatio="xMidYMid meet">
+  <!-- Cosmos background and radiating 'code' geometry (no horizon line) -->
+  <div id="cosmos" aria-hidden="true">
+    <canvas id="starfield"></canvas>
+
+    <!-- Sacred geometry overlay: subtle, radiating, dark-on-dark -->
+    <svg id="geometry" viewBox="-1200 -1200 2400 2400" preserveAspectRatio="xMidYMid meet">
       <defs>
+        <!-- Soft radial fade to keep geometry subtle toward edges -->
         <radialGradient id="fade" cx="0" cy="0" r="1">
           <stop offset="0%" stop-color="white" stop-opacity="1" />
-          <stop offset="60%" stop-color="white" stop-opacity="0.2" />
+          <stop offset="55%" stop-color="white" stop-opacity="0.18" />
           <stop offset="100%" stop-color="white" stop-opacity="0" />
         </radialGradient>
         <mask id="radial-fade">
-          <rect x="-2000" y="-2000" width="4000" height="4000" fill="url(#fade)" />
+          <rect x="-2000" y="-2000" width="4000" height="4000" fill="url(#fade)"/>
         </mask>
+
+        <!-- Stroke gradient to emulate cosmic interference -->
+        <radialGradient id="strokeGrad" cx="0" cy="0" r="1">
+          <stop offset="0%" stop-color="#778" stop-opacity="0.22"/>
+          <stop offset="70%" stop-color="#24263a" stop-opacity="0.10"/>
+          <stop offset="100%" stop-color="#12131c" stop-opacity="0.05"/>
+        </radialGradient>
       </defs>
-      <g mask="url(#radial-fade)">
-        <circle cx="-130" cy="0" r="260" class="geo" />
-        <circle cx="130" cy="0" r="260" class="geo" />
+
+      <!-- Vesica Piscis sets (various scales/rotations), all masked and subtle -->
+      <g class="vesica" mask="url(#radial-fade)">
+        <g transform="rotate(12)">
+          <circle cx="-150" cy="0" r="300" class="geo"/>
+          <circle cx="150" cy="0" r="300" class="geo"/>
+        </g>
+        <g transform="rotate(-18) scale(1.6)">
+          <circle cx="-150" cy="0" r="300" class="geo"/>
+          <circle cx="150" cy="0" r="300" class="geo"/>
+        </g>
+        <g transform="rotate(37) scale(2.4)">
+          <circle cx="-150" cy="0" r="300" class="geo"/>
+          <circle cx="150" cy="0" r="300" class="geo"/>
+        </g>
+      </g>
+
+      <!-- Flower of Life fragments (rings only for that coded/fragmented feel) -->
+      <g class="fol" mask="url(#radial-fade)">
+        <g class="ring" transform="rotate(0)">
+          <circle cx="0" cy="0" r="240" class="geo"/>
+          <circle cx="208" cy="0" r="240" class="geo"/>
+          <circle cx="-208" cy="0" r="240" class="geo"/>
+          <circle cx="104" cy="180" r="240" class="geo"/>
+          <circle cx="-104" cy="-180" r="240" class="geo"/>
+          <circle cx="-104" cy="180" r="240" class="geo"/>
+          <circle cx="104" cy="-180" r="240" class="geo"/>
+        </g>
+        <g class="ring" transform="rotate(23) scale(1.7)">
+          <circle cx="0" cy="0" r="240" class="geo"/>
+          <circle cx="208" cy="0" r="240" class="geo"/>
+          <circle cx="-208" cy="0" r="240" class="geo"/>
+          <circle cx="104" cy="180" r="240" class="geo"/>
+          <circle cx="-104" cy="-180" r="240" class="geo"/>
+          <circle cx="-104" cy="180" r="240" class="geo"/>
+          <circle cx="104" cy="-180" r="240" class="geo"/>
+        </g>
+      </g>
+
+      <!-- Fibonacci/log spirals (dashed, to read as interference traces) -->
+      <g class="fibonacci" mask="url(#radial-fade)">
+        <path class="geo dashed" d="M0,0
+          m0,-10
+          a10,10 0 0,1 10,10
+          a20,20 0 0,1 -20,20
+          a40,40 0 0,1 -40,-40
+          a80,80 0 0,1 80,-80
+          a160,160 0 0,1 160,160
+          a320,320 0 0,1 -320,320
+          a640,640 0 0,1 -640,-640"/>
+        <g transform="rotate(45) scale(0.9)">
+          <path class="geo dashed" d="M0,0
+            m0,-10
+            a10,10 0 0,1 10,10
+            a20,20 0 0,1 -20,20
+            a40,40 0 0,1 -40,-40
+            a80,80 0 0,1 80,-80
+            a160,160 0 0,1 160,160
+            a320,320 0 0,1 -320,320
+            a640,640 0 0,1 -640,-640"/>
+        </g>
       </g>
     </svg>
   </div>
+
+  <!-- Central content (emerging light) -->
   <main id="core">
     <h1 class="title">The Game of Light</h1>
     <p class="tag">A signal in the dark.</p>
+    <nav class="cta">
+      <a href="#" class="btn ghost">Enter</a>
+      <a href="#" class="btn line">Read</a>
+    </nav>
   </main>
-  <script src="script.js"></script>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
