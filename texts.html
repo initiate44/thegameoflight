@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Game of Light — Texts</title>
+  <meta name="description" content="Fragments from the Codex — verses gathered toward a book of light." />
+  <meta property="og:title" content="The Game of Light — Texts" />
+  <meta property="og:description" content="Fragments from the Codex — verses gathered toward a book of light." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="assets/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Crimson+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{ --ink:#1e1c16; --ink2:#4a463c; }
+    body{
+      margin:0; color:var(--ink);
+      background:url('assets/parchment.jpg') center/cover fixed no-repeat;
+      font-family:'Crimson Pro', Georgia, serif; line-height:1.85;
+    }
+    .wrap{min-height:100vh; padding:60px 20px; display:flex; align-items:center; justify-content:center;}
+    .page{
+      width:min(940px, 96vw);
+      background:rgba(255,255,255,.55);
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:18px;
+      padding:34px 26px;
+      box-shadow:0 20px 60px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.6);
+    }
+    header{text-align:center; margin-bottom:14px}
+    .sigil{ width:120px; height:120px; display:block; margin:0 auto 10px }
+    h1{ margin:0 0 6px; font-family:'Cinzel', serif; font-weight:700; font-size:clamp(28px,5.5vw,54px); letter-spacing:.6px; }
+    .subtitle{ color:var(--ink2); font-family:'Cinzel',serif; font-size:clamp(14px,2.4vw,18px) }
+    .orn{ display:block; width:220px; margin:14px auto 10px; opacity:.9 }
+    nav{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:10px 0 18px; }
+    .pill{
+      font-family:'Cinzel', serif; padding:8px 14px; border-radius:999px;
+      border:1px solid rgba(0,0,0,.18);
+      background:linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.68));
+      text-decoration:none; color:inherit; font-weight:600; font-size:16px;
+    }
+    .verses{ margin-top:10px }
+    .fragment{
+      background:linear-gradient(180deg, rgba(255,255,255,.68), rgba(255,255,255,.58));
+      border:1px solid rgba(0,0,0,.06); border-radius:14px;
+      padding:18px 16px; box-shadow:inset 0 1px 0 rgba(255,255,255,.8);
+      margin:14px 0; white-space:pre-wrap; font-size:clamp(16px, 2.2vw, 20px);
+    }
+    footer{ text-align:center; color:var(--ink2); font-size:13px; margin-top:18px }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main class="page">
+      <header>
+        <img class="sigil" src="assets/sacred-sigil.svg" alt="Sacred Sigil">
+        <h1>Texts</h1>
+        <div class="subtitle">Fragments from the Codex</div>
+        <img class="orn" src="assets/ornament.svg" alt="">
+        <nav>
+          <a class="pill" href="index.html">Codex</a>
+          <a class="pill" href="texts.html" aria-current="page">Texts</a>
+          <a class="pill" href="mailto:contact@thegameoflight.org">Contact</a>
+        </nav>
+      </header>
+
+      <section class="verses">
+        <article class="fragment"><strong>Fragment I</strong>
+Through the flame, the mirror is revealed.
+Through the mirror, the seeker is seen.
+The path narrows, and yet the light endures.</article>
+
+        <article class="fragment"><strong>Fragment II</strong>
+The pattern is not written in stone,
+but in the breath between all things.
+Each thread is unseen, until drawn to the whole.</article>
+
+        <article class="fragment"><strong>Fragment III</strong>
+No shadow is without form.
+No flame is without reflection.
+The seeker learns:
+to step forward is already to arrive.</article>
+
+        <article class="fragment"><strong>Fragment IV</strong>
+What was scattered is gathered.
+What was hidden is bound.
+And the fragments will become
+a book of light.</article>
+      </section>
+
+      <footer>
+        <div>These are fragments. The Codex will carry them whole.</div>
+        <div style="margin-top:6px">© <span id="year"></span> The Game of Light</div>
+      </footer>
+    </main>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
