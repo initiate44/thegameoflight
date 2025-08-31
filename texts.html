@@ -8,31 +8,25 @@
   <meta property="og:title" content="The Game of Light — Texts" />
   <meta property="og:description" content="Fragments from the Codex — verses gathered toward a book of light." />
   <meta property="og:type" content="website" />
-  
   <link rel="icon" href="assets/favicon.ico?v=7" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Crimson+Pro:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     html,body{height:100%}
     body{
       margin:0;
-      /* simpler, seam-free space: very dark with gentle radial only */
       background: radial-gradient(1200px 900px at 50% 30%, #0b0f18 0%, #070a12 60%, #05070c 100%);
       font-family:'Crimson Pro', Georgia, serif; line-height:1.85;
       position:relative; overflow-x:hidden; color:#1b1915;
     }
-    /* stars (sparse) */
     canvas#stars{position:fixed; inset:0; pointer-events:none; opacity:.55; mix-blend-mode:screen; z-index:0}
-    /* veil (soft perimeter only, no horizontal bands) */
     .veil{pointer-events:none; position:fixed; inset:0; z-index:1;
       background: radial-gradient(1600px 1200px at 50% 45%, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 42%),
                   radial-gradient(1600px 1200px at 50% 55%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.65) 78%, rgba(0,0,0,0.84) 100%);
     }
-    /* sharp rays (above veil, below bloom/card) */
     .rays{pointer-events:none; position:fixed; inset:0; z-index:2;
       background: url('assets/rays.svg?v=7') no-repeat center 46%/140vmax auto;
       mix-blend-mode:screen; opacity:.9;
     }
-    /* bloom to fill gaps between rays */
     .bloom{pointer-events:none; position:fixed; inset:0; z-index:3;
       background:
         radial-gradient(740px 520px at 50% 46%, rgba(255,248,224,0.36) 0%, rgba(255,248,224,0.14) 52%, rgba(255,248,224,0) 74%),
@@ -42,7 +36,6 @@
     .wrap{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:90px 24px; position:relative; z-index:4;}
     .codex{
       width:min(900px,94vw); text-align:center;
-      /* remove gradient seams: use parchment + white overlay, no borders */
       background:
         linear-gradient(rgba(255,255,255,.80), rgba(255,255,255,.74)),
         url('assets/parchment.jpg?v=7') center/800px auto repeat;
@@ -74,7 +67,6 @@
       addEventListener('resize',resize,{passive:true}); resize(); draw();
     })();
   </script>
-
 </head>
 <body>
   <div class="veil"></div>
@@ -109,9 +101,10 @@ What was hidden is bound.
 And the fragments will become
 a book of light.
       </section>
-      <div class="tablets">
+      <div class="tablets nav">
         <a class="tab" href="index.html?v=7">Codex</a>
         <a class="tab" href="texts.html?v=7" aria-current="page">Texts</a>
+        <a class="tab" href="relics.html?v=7">Relics</a>
         <a class="tab" href="mailto:contact@thegameoflight.org">Contact</a>
       </div>
       <footer>These are fragments. The Codex will carry them whole. · © <span id="year"></span> The Game of Light • v7</footer>
