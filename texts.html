@@ -9,7 +9,7 @@
   <meta property="og:description" content="Fragments from the Codex — verses gathered toward a book of light." />
   <meta property="og:type" content="website" />
   
-  <link rel="icon" href="assets/favicon.ico?v=5" />
+  <link rel="icon" href="assets/favicon.ico?v=6" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Crimson+Pro:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     html,body{height:100%}
@@ -19,21 +19,30 @@
       font-family:'Crimson Pro', Georgia, serif; line-height:1.85;
       position:relative; overflow-x:hidden; color:#1e1c16;
     }
+    /* sparse stars */
     canvas#stars{position:fixed; inset:0; pointer-events:none; opacity:.55; mix-blend-mode:screen; z-index:0}
+    /* dark perimeter */
     .veil{pointer-events:none; position:fixed; inset:0; z-index:1;
       background:
         radial-gradient(1600px 1200px at 50% 40%, rgba(255,255,255,0.06) 0%, rgba(0,0,0,0) 40%),
         radial-gradient(1400px 1000px at 50% 60%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.62) 80%, rgba(0,0,0,0.84) 100%);
     }
-    /* Radiating center glow — layered and stronger, on both pages */
-    .bloom{pointer-events:none; position:fixed; inset:0; z-index:2;
+    /* SHARP SUNBURST RAYS */
+    .rays{pointer-events:none; position:fixed; inset:0; z-index:2;
+      background: url('assets/rays.svg?v=6') no-repeat center 46%/min(1600px, 140vw) auto;
+      mix-blend-mode:screen; opacity:.85;
+      /* soften extreme edges */
+      -webkit-mask-image: radial-gradient(900px 600px at 50% 46%, black 60%, rgba(0,0,0,0.7) 80%, transparent 100%);
+              mask-image: radial-gradient(900px 600px at 50% 46%, black 60%, rgba(0,0,0,0.7) 80%, transparent 100%);
+    }
+    /* Radiating bloom under text to fill gaps between rays */
+    .bloom{pointer-events:none; position:fixed; inset:0; z-index:3;
       background:
-        radial-gradient(720px 520px at 50% 46%, rgba(255,248,224,0.42) 0%, rgba(255,248,224,0.18) 52%, rgba(255,248,224,0) 74%),
-        radial-gradient(980px 760px at 50% 46%, rgba(255,248,224,0.14) 0%, rgba(255,248,224,0) 60%),
-        radial-gradient(1400px 1000px at 50% 46%, rgba(255,248,224,0.08) 0%, rgba(255,248,224,0) 55%);
+        radial-gradient(720px 520px at 50% 46%, rgba(255,248,224,0.36) 0%, rgba(255,248,224,0.14) 52%, rgba(255,248,224,0) 74%),
+        radial-gradient(1200px 900px at 50% 46%, rgba(255,248,224,0.10) 0%, rgba(255,248,224,0) 60%);
       mix-blend-mode:screen;
     }
-    .wrap{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:90px 24px; position:relative; z-index:3;}
+    .wrap{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:90px 24px; position:relative; z-index:4;}
     .codex{
       width:min(900px,94vw); text-align:center;
       background:linear-gradient(180deg, rgba(255,255,255,.74), rgba(255,255,255,.58));
@@ -69,13 +78,14 @@
 </head>
 <body>
   <div class="veil"></div>
+  <div class="rays"></div>
   <div class="bloom"></div>
   <div class="wrap">
     <main class="codex">
-      <img class="sigil" src="assets/sacred-sigil.svg?v=5" alt="Sacred Sigil">
+      <img class="sigil" src="assets/sacred-sigil.svg?v=6" alt="Sacred Sigil">
       <h1>Texts</h1>
       <div class="subtitle">Fragments from the Codex</div>
-      <img class="orn" src="assets/ornament.svg?v=5" alt="">
+      <img class="orn" src="assets/ornament.svg?v=6" alt="">
       <section class="text" style="text-align:left;">
 <strong>Fragment I</strong>
 Through the flame, the mirror is revealed.
@@ -100,11 +110,11 @@ And the fragments will become
 a book of light.
       </section>
       <div class="tablets">
-        <a class="tab" href="index.html?v=5">Codex</a>
-        <a class="tab" href="texts.html?v=5" aria-current="page">Texts</a>
+        <a class="tab" href="index.html?v=6">Codex</a>
+        <a class="tab" href="texts.html?v=6" aria-current="page">Texts</a>
         <a class="tab" href="mailto:contact@thegameoflight.org">Contact</a>
       </div>
-      <footer>These are fragments. The Codex will carry them whole. · © <span id="year"></span> The Game of Light • v5</footer>
+      <footer>These are fragments. The Codex will carry them whole. · © <span id="year"></span> The Game of Light • v6</footer>
     </main>
   </div>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
