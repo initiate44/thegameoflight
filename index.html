@@ -12,44 +12,73 @@
   <link rel="icon" href="assets/favicon.ico" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Crimson+Pro:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+    :root{
+      --ink:#1e1c16;
+      --ink2:#4a463c;
+    }
+    html,body{height:100%}
     body{
       margin:0;
-      color:#1e1c16;
+      color:var(--ink);
       background:url('assets/parchment.jpg') center/cover fixed no-repeat;
       font-family:'Crimson Pro', Georgia, serif;
       line-height:1.8;
+      position:relative;
+      overflow-x:hidden;
     }
+
+    /* Dark ethereal perimeter + central emergence */
+    .veil{
+      pointer-events:none;
+      position:fixed; inset:0;
+      /* Outer darkness vignette */
+      background:
+        radial-gradient(1200px 900px at 50% 50%, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0) 38%),
+        radial-gradient(1200px 900px at 50% 50%, rgba(0,0,0,0) 42%, rgba(0,0,0,0.35) 80%, rgba(0,0,0,0.55) 100%);
+      mix-blend-mode:multiply;
+    }
+    /* Subtle light bloom right around the codex block */
+    .bloom{
+      pointer-events:none;
+      position:fixed; inset:0;
+      background: radial-gradient(420px 320px at 50% 50%, rgba(255,248,224,0.28), rgba(255,248,224,0.12) 45%, rgba(255,248,224,0) 70%);
+      mix-blend-mode:screen;
+    }
+
     .wrap{
       min-height:100vh;
       display:flex; align-items:center; justify-content:center;
-      padding:60px 20px;
+      padding:80px 24px;
+      position:relative;
     }
+
     .codex{
-      max-width:880px;
-      width:100%;
+      max-width:880px; width:100%;
       text-align:center;
-      background:rgba(255,255,255,.55);
+      background:linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,255,255,.52));
       border:1px solid rgba(0,0,0,.08);
-      border-radius:18px;
-      padding:36px 28px;
-      box-shadow: 0 20px 60px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.6);
+      border-radius:20px;
+      padding:40px 30px;
+      box-shadow:
+        0 30px 100px rgba(0,0,0,.4),
+        0 0 0 1px rgba(255,255,255,.55) inset,
+        0 0 60px rgba(255,240,210,.25); /* inner glow */
+      position:relative;
     }
-    .sigil{
-      width:140px; height:140px;
-      margin:0 auto 14px;
-    }
+
+    .sigil{ width:160px; height:160px; margin:0 auto 14px }
     h1{
       font-family:'Cinzel', serif;
       font-size:clamp(34px, 6vw, 68px);
-      font-weight:700;
-      letter-spacing:.8px;
+      font-weight:700; letter-spacing:.8px;
       margin:0 0 10px;
+      color:#1c1a15;
+      text-shadow: 0 1px 0 rgba(255,255,255,.45);
     }
     .subtitle{
       font-family:'Cinzel', serif;
       font-size:clamp(16px, 2.4vw, 20px);
-      color:#4a463c;
-      margin-bottom:20px;
+      color:#4a463c; margin-bottom:20px;
     }
     .orn{display:block; margin:16px auto 24px; width:220px; opacity:.9}
     .text{
@@ -65,24 +94,24 @@
     .tab{
       font-family:'Cinzel', serif;
       padding:10px 16px;
-      border:1px solid rgba(0,0,0,.2);
-      background:linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.68));
+      border:1px solid rgba(0,0,0,.25);
+      background:linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.7));
       border-radius:12px;
       text-decoration:none; color:#1e1c16;
-      font-weight:600;
-      font-size:17px;
+      font-weight:600; font-size:17px;
+      box-shadow: 0 8px 26px rgba(0,0,0,.18);
     }
-    footer{
-      margin-top:24px;
-      font-size:14px;
-      color:#4a463c;
-    }
+    footer{ margin-top:24px; font-size:14px; color:#4a463c }
   </style>
 </head>
 <body>
+  <!-- Ethereal dark perimeter and central glow -->
+  <div class="veil"></div>
+  <div class="bloom"></div>
+
   <div class="wrap">
     <div class="codex">
-      <img class="sigil" src="assets/sigil.svg" alt="Flower of Life sigil">
+      <img class="sigil" src="assets/sacred-sigil.svg" alt="Sacred Sigil">
       <h1>The Game of Light</h1>
       <div class="subtitle">Fragments emerging through the veil</div>
       <img class="orn" src="assets/ornament.svg" alt="">
@@ -105,7 +134,7 @@ as a book of light.
       </div>
 
       <div class="tablets">
-        <a class="tab" href="#">Texts</a>
+        <a class="tab" href="texts.html">Texts</a>
         <a class="tab" href="#">Relics</a>
         <a class="tab" href="mailto:contact@thegameoflight.org">Contact</a>
       </div>
@@ -113,9 +142,6 @@ as a book of light.
       <footer>© <span id="year"></span> The Game of Light • Codex fragments</footer>
     </div>
   </div>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
