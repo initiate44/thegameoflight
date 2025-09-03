@@ -78,7 +78,17 @@ body{
 }
 
 
-/* Relics — Coming Soon */
-.coming-soon{max-width:1000px;margin:18px auto;padding:0 18px;text-align:center}
-.coming-soon-img{width:min(720px,92%);height:auto;filter:drop-shadow(0 22px 60px rgba(0,0,0,.45))}
-.coming-soon-note{font-family:'Crimson Pro',serif;font-size:18px;opacity:.95;margin:10px auto 2px}
+
+
+/* Relics — Coming Soon (resized) */
+.coming-soon{max-width:900px;margin:16px auto 12px;padding:0 18px;text-align:center}
+.coming-soon-img{
+  width:clamp(260px, 60vw, 520px);
+  height:auto;
+  filter:drop-shadow(0 18px 46px rgba(0,0,0,.42));
+}
+.coming-soon-note{
+  font-family:'Crimson Pro',serif;
+  font-size:18px; line-height:1.6; opacity:.95;
+  margin:10px auto 2px; max-width:70ch;
+}
