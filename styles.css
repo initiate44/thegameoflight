@@ -119,3 +119,25 @@ main.codex .prints-grid .print-card img.thumb {
 }
 /* Prevent any overflow within the parchment card */
 main.codex{ overflow: hidden; }
+
+
+/* Shop — final overflow guard (v17) */
+main.codex .prints-grid .print-card > figure > img.thumb,
+main.codex .prints-grid .print-card img.thumb {
+  display:block;
+  max-width: calc(100% - 2px);
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  /* hard cap to avoid giant originals */
+  max-height: 60vh;
+}
+/* Ensure the figure itself doesn't force overflow */
+main.codex .prints-grid .print-card > figure {
+  margin: 0 auto 10px;
+  max-width: 100%;
+}
+/* White card containment */
+main.codex{ overflow:hidden; }
+
