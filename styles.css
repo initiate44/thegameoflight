@@ -65,10 +65,15 @@ body{
 .reduce-motion *{transition:none !important; animation:none !important}
 
 
-/* TEXTS — Harmonized two-section layout */
-.section-block{max-width:1000px;margin:18px auto;padding:0 18px}
-.section-block .sub{font-family:'Cinzel',serif;font-size:24px;text-align:center;margin:8px 0 12px}
-.passage-title,.keep-step{font-family:'Cinzel',serif;font-size:18px;text-align:center;opacity:.9;margin:12px 0 4px}
-.passage-line,.keep-text{font-family:'Crimson Pro',serif;font-size:19px;line-height:1.65;opacity:.95;margin:8px auto;max-width:75ch;text-align:center}
-.section-block + .section-block{margin-top:24px}
+/* Codex — emphasized quote */
+.review-quote.highlight-quote{
+  font-family:'Crimson Pro',serif;
+  font-size:22px; line-height:1.65; font-weight:700; letter-spacing:.01em;
+  text-align:center; max-width:75ch; margin:18px auto 24px;
+}
+.review-quote.highlight-quote::before,
+.review-quote.highlight-quote::after{
+  content:""; display:block; width:90px; height:1px;
+  background:rgba(255,255,255,.28); margin:12px auto;
+}
 

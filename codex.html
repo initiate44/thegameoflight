@@ -4,10 +4,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>The Game of Light — Texts</title>
-<meta content="Fragments from the Codex — verses gathered toward a book of light." name="description"/>
-<meta content="The Game of Light — Texts" property="og:title"/>
-<meta content="Fragments from the Codex — verses gathered toward a book of light." property="og:description"/>
+<title>The Game of Light — Codex</title>
+<meta content="The Codex: an entry point to the signal of light." name="description"/>
+<meta content="The Game of Light — Codex" property="og:title"/>
+<meta content="The Codex: an entry point to the signal of light." property="og:description"/>
 <meta content="website" property="og:type"/>
 <link href="assets/favicon.ico?v=7" rel="icon"/>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Crimson+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
@@ -67,12 +67,21 @@
     .frag-title{font-family:'Cinzel',serif;font-size:18px;margin:16px 0 6px;text-align:center;opacity:.9}
     .frag-line{font-family:'Crimson Pro',serif;font-size:18px;line-height:1.6;text-align:center;opacity:.95;margin:6px auto;max-width:75ch}
     
-/* Texts — Fragments only */
-.fragments{max-width:1000px;margin:18px auto;padding:0 18px}
-.fragments .sub{font-family:'Cinzel',serif;font-size:24px;text-align:center;margin:8px 0 10px}
-.frag-title{font-family:'Cinzel',serif;font-size:18px;margin:14px 0 6px;text-align:center;opacity:.9}
-.frag-line{font-family:'Crimson Pro',serif;font-size:18px;line-height:1.6;text-align:center;opacity:.95;margin:6px auto;max-width:75ch}
-.review-quote{max-width:900px;margin:18px auto 22px;padding:0 18px;text-align:center;font-family:'Crimson Pro',serif;font-size:18px;line-height:1.55;opacity:.95}
+/* Codex clean overview */
+.codex-intro{max-width:900px;margin:14px auto 8px;padding:0 18px;text-align:center;font-family:'Crimson Pro',serif;font-size:19px;line-height:1.6;opacity:.95}
+.path-brief{max-width:1000px;margin:14px auto 6px;padding:0 18px}
+.path-brief .sub{font-family:'Cinzel',serif;font-size:26px;text-align:center;margin:8px 0 10px}
+.path-lines{list-style:none;padding:0;margin:6px auto;max-width:900px}
+.path-lines li{margin:6px 0;font-family:'Crimson Pro',serif;font-size:18px;line-height:1.55;opacity:.95;text-align:center}
+.path-note{text-align:center;font-family:'Crimson Pro',serif;font-size:16px;opacity:.9;margin-top:8px}
+.review-quote{max-width:900px;margin:16px auto 22px;padding:0 18px;text-align:center;font-family:'Crimson Pro',serif;font-size:18px;line-height:1.55;opacity:.95}
+
+/* Codex — emphasize the main quote */
+.review-quote.highlight-quote{font-family:'Crimson Pro',serif;font-size:22px;line-height:1.65;opacity:.98;
+  text-align:center; max-width:75ch; margin:18px auto 24px; font-weight:700; letter-spacing:.01em}
+.review-quote.highlight-quote::before,
+.review-quote.highlight-quote::after{content:""; display:block; width:90px; height:1px;
+  background:rgba(255,255,255,.28); margin:12px auto}
 </style>
 <script>
     (function(){
@@ -84,14 +93,7 @@
       addEventListener('resize',resize,{passive:true}); resize(); draw();
     })();
   </script>
-<style>
-/* Fragments minimal */
-.fragments{max-width:1000px;margin:18px auto;padding:0 18px}
-.fragments .sub{font-family:'Cinzel',serif;font-size:24px;text-align:center;margin:8px 0 10px}
-.frag-title{font-family:'Cinzel',serif;font-size:18px;margin:14px 0 6px;text-align:center;opacity:.9}
-.frag-line{font-family:'Crimson Pro',serif;font-size:18px;line-height:1.6;text-align:center;opacity:.95;margin:6px auto;max-width:75ch}
-.review-quote{max-width:900px;margin:18px auto 22px;padding:0 18px;text-align:center;font-family:'Crimson Pro',serif;font-size:18px;line-height:1.55;opacity:.95}
-</style>
+
 <style>
 /* Harmonize main text sizing with Shop */
 .codex-intro{font-size:19px;line-height:1.6}
@@ -107,19 +109,22 @@
 <div class="wrap">
 <main class="codex">
 <img alt="Sacred Sigil" class="sigil" src="assets/sacred-sigil.png?v=18"/>
-<h1>Texts</h1>
-<section class="fragments">
-<h2 class="sub">Fragments from the Codex</h2>
-<h3 class="frag-title">Fragment I</h3>
-<blockquote class="frag-line">Through the flame, the mirror is revealed.<br/>Through the mirror, the seeker is seen.<br/>The path narrows, and yet the light endures.</blockquote>
-<h3 class="frag-title">Fragment II</h3>
-<blockquote class="frag-line">The pattern is not written in stone,<br/>but in the breath between all things.<br/>Each thread is unseen, until drawn to the whole.</blockquote>
-<h3 class="frag-title">Fragment III</h3>
-<blockquote class="frag-line">No shadow is without form.<br/>No flame is without reflection.<br/>The seeker learns:<br/>to step forward is already to arrive.</blockquote>
-<h3 class="frag-title">Fragment IV</h3>
-<blockquote class="frag-line">What was scattered is gathered.<br/>What was hidden is bound.<br/>And the fragments will become<br/>a book of light.</blockquote>
-</section>
-<blockquote class="review-quote">“Not instruction alone, but invocation. The Bell that makes you remember.”</blockquote>
+<h1>Codex</h1>
+<p class="codex-intro">
+  The Game of Light is a living codex—part manual, all mirror. It does not ask for belief; it asks for honesty.
+  Page by page the false loosens and the true remains, fire-tempered and quiet.
+  The path unfolds in five movements, each a narrowing that becomes an opening, each an answer to the Bell.
+</p>
+<section class="path-brief">
+<h2 class="sub">The Path Through the Books</h2>
+<ul class="path-lines">
+<li><strong>Book I — Through the Eye of the Needle:</strong> The Eye strips you to thread. The passage begins.</li>
+<li><strong>Book II — The Builder of the Temple:</strong> Alignment becomes architecture. The dwelling is raised within.</li>
+<li><strong>Book III — The Crown of Flame:</strong> Ignition, anointing, and the living crown.</li>
+<li><strong>Book IV — The Inward Triangle:</strong> The flame turns inward not to hide but to steady. It reveals the quiet geometry.</li>
+<li><strong>Book V — The Singularity:</strong> Light and shadow reconcile; the whole is seen at once.</li>
+</ul>
+</section><blockquote class="review-quote highlight-quote">“A manual disguised as myth; a mirror held to the soul. It does not inform — it awakens.”</blockquote>
 <img alt="" class="orn" src="assets/ornament.svg?v=7"/>
 <section class="text" style="text-align:left;">
 <strong>Fragment I</strong>
@@ -145,8 +150,8 @@ And the fragments will become
 a book of light.
       </section>
 <div class="tablets nav">
-<a class="tab" href="codex.html">Codex</a>
-<a aria-current="page" class="tab active" href="texts.html">Texts</a>
+<a class="tab active" href="codex.html">Codex</a>
+<a aria-current="page" class="tab" href="texts.html">Texts</a>
 <a class="tab" href="relics.html">Relics</a>
 <a class="tab" href="prints.html">Shop</a><a class="tab" href="mailto:contact@thegameoflight.org">Contact</a>
 </div>
