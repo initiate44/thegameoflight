@@ -210,5 +210,75 @@
   });
 })();
 </script>
+    <style>
+/* Lightbox styles */
+.lightbox-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;z-index:1000;padding:2rem}
+.lightbox-backdrop img{max-width:92vw;max-height:92vh;box-shadow:0 20px 60px rgba(0,0,0,.6);border-radius:12px}
+.lightbox-close,.lightbox-prev,.lightbox-next{position:fixed;top:16px;font-size:28px;background:rgba(0,0,0,.4);backdrop-filter:blur(6px);color:#fff;border:1px solid rgba(255,255,255,.2);padding:.4rem .6rem;border-radius:12px;cursor:pointer;z-index:1001}
+.lightbox-close{right:16px}
+.lightbox-prev{left:16px;top:50%;transform:translateY(-50%)}
+.lightbox-next{right:16px;top:50%;transform:translateY(-50%)}
+.lightbox-caption{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);color:#ddd;font:600 16px/1.4 'Crimson Pro',serif;text-align:center;max-width:90vw}
+@media (hover:hover){.lightbox-backdrop img{cursor:zoom-out}}
+</style>
+
+<script>
+/* Minimal lightbox for .print-card .thumb images */
+(function(){
+  const thumbs=[...document.querySelectorAll('.print-card .thumb')];
+  if(!thumbs.length) return;
+
+  function srcFor(img){
+    // Prefer high-res if you set data-full="path/to/big.jpg", else use the same src (strip cache tag)
+    const s = img.getAttribute('data-full') || img.getAttribute('src') || '';
+    return s.split('?')[0];
+  }
+
+  let idx=0, overlay;
+
+  function openAt(i){
+    idx=(i+thumbs.length)%thumbs.length;
+    const img=thumbs[idx];
+    const big=srcFor(img);
+
+    overlay=document.createElement('div');
+    overlay.className='lightbox-backdrop';
+    overlay.innerHTML=`
+      <img src="${big}" alt="${img.alt||''}">
+      <button class="lightbox-close" aria-label="Close">×</button>
+      <button class="lightbox-prev" aria-label="Previous">‹</button>
+      <button class="lightbox-next" aria-label="Next">›</button>
+      <div class="lightbox-caption">${img.closest('.print-card')?.querySelector('.name')?.textContent||''}</div>
+    `;
+    document.body.appendChild(overlay);
+    document.body.style.overflow='hidden';
+
+    overlay.addEventListener('click',e=>{
+      if(e.target===overlay || e.target.classList.contains('lightbox-close')) closeBox();
+    });
+    overlay.querySelector('.lightbox-prev').addEventListener('click',e=>{e.stopPropagation(); nav(-1);});
+    overlay.querySelector('.lightbox-next').addEventListener('click',e=>{e.stopPropagation(); nav(1);});
+    window.addEventListener('keydown',onKey);
+  }
+
+  function closeBox(){
+    if(overlay){
+      overlay.remove();
+      overlay=null;
+      document.body.style.overflow='';
+      window.removeEventListener('keydown',onKey);
+    }
+  }
+
+  function nav(d){ closeBox(); openAt(idx+d); }
+  function onKey(e){
+    if(e.key==='Escape') closeBox();
+    if(e.key==='ArrowLeft') nav(-1);
+    if(e.key==='ArrowRight') nav(1);
+  }
+
+  thumbs.forEach((img,i)=> img.addEventListener('click', e=>{ e.preventDefault(); openAt(i); }));
+})();
+</script>
 </body>
 </html>
