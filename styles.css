@@ -92,3 +92,24 @@ body{
   font-size:18px; line-height:1.6; opacity:.95;
   margin:10px auto 2px; max-width:70ch;
 }
+
+
+/* Shop — clamp product image sizes for consistency */
+.print-card img,
+.product img,
+.shop-grid img,
+.print-img,
+main.codex .shop .product-image,
+main.codex .shop img {
+  width: clamp(240px, 40vw, 480px);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  max-height: 70vh;
+}
+/* If cards are side-by-side, ensure they don't overflow */
+.shop-grid, .products, .prints-grid {
+  gap: 18px;
+  align-items: start;
+}
+
