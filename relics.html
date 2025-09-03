@@ -57,7 +57,26 @@
       box-shadow: 0 8px 26px rgba(0,0,0,.28);
     }
     footer{ margin-top:24px; font-size:14px; color:#4a463c }
-  </style>
+  
+
+/* —— Final draft: cover sizing within white card —— */
+.relics-preorder .cover{
+  display:block;
+  margin: 12px auto;
+  /* Prefer 1/3 of the content column, but never overflow the white area */
+  width: 33%;
+  max-width: 360px;
+  min-width: 160px;
+  height: auto;
+  box-sizing: border-box;
+}
+@media (max-width: 640px){
+  .relics-preorder .cover{
+    width: 60%;
+    max-width: 320px;
+  }
+}
+</style>
 <script>
     (function(){
       const c=document.createElement('canvas'); c.id='stars'; document.addEventListener('DOMContentLoaded',()=>document.body.appendChild(c));
