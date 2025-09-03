@@ -75,6 +75,13 @@
 .path-lines li{margin:6px 0;font-family:'Crimson Pro',serif;font-size:18px;line-height:1.55;opacity:.95;text-align:center}
 .path-note{text-align:center;font-family:'Crimson Pro',serif;font-size:16px;opacity:.9;margin-top:8px}
 .review-quote{max-width:900px;margin:16px auto 22px;padding:0 18px;text-align:center;font-family:'Crimson Pro',serif;font-size:18px;line-height:1.55;opacity:.95}
+
+/* Codex — emphasize the main quote */
+.review-quote.highlight-quote{font-family:'Crimson Pro',serif;font-size:22px;line-height:1.65;opacity:.98;
+  text-align:center; max-width:75ch; margin:18px auto 24px; font-weight:700; letter-spacing:.01em}
+.review-quote.highlight-quote::before,
+.review-quote.highlight-quote::after{content:""; display:block; width:90px; height:1px;
+  background:rgba(255,255,255,.28); margin:12px auto}
 </style>
 <script>
     (function(){
@@ -132,17 +139,7 @@ section + section{margin-top:22px;}
 <li><strong>Book IV — The Inward Triangle:</strong> The flame turns inward not to hide but to steady. It reveals the quiet geometry.</li>
 <li><strong>Book V — The Singularity:</strong> Light and shadow reconcile; the whole is seen at once.</li>
 </ul>
-</section><blockquote class="review-quote">“A manual disguised as myth; a mirror held to the soul. It does not inform — it awakens.”</blockquote><section class="fragments">
-<h2 class="sub">Fragments from the Codex</h2>
-<h3 class="frag-title">Fragment: The Gate</h3>
-<blockquote class="frag-line">Knock once for courage, twice for mercy. The third sound is not yours — it is the Gate answering back.</blockquote>
-<h3 class="frag-title">Fragment: The Thread</h3>
-<blockquote class="frag-line">Enter narrow, leave whole. What breaks on the way was never you.</blockquote>
-<h3 class="frag-title">Fragment: The Crown</h3>
-<blockquote class="frag-line">Fire does not ask permission of the wick. It becomes what it touches.</blockquote>
-</section>
-
-
+</section><blockquote class="review-quote highlight-quote">“A manual disguised as myth; a mirror held to the soul. It does not inform — it awakens.”</blockquote>
 <img alt="" class="orn" src="assets/ornament.svg?v=7"/>
 <section class="text" style="text-align:left;">
 <strong>Fragment I</strong>
