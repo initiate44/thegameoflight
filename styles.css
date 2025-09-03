@@ -118,3 +118,19 @@ main.codex .shop img {
 .relics-preorder{max-width:900px;margin:18px auto;padding:0 18px;text-align:center}
 .relics-preorder .sub{font-family:'Cinzel',serif;font-size:24px;margin:8px 0 12px}
 .pre-desc{font-family:'Crimson Pro',serif;font-size:19px;line-height:1.65;opacity:.95;margin:6px auto}
+
+
+/* Relics — preorder emphasis & centering */
+.relics-preorder{ text-align:center; max-width:900px; margin:22px auto 28px; padding:0 18px; }
+.relics-preorder .sub{ font-family:'Cinzel',serif; font-weight:700; font-size:28px; letter-spacing:.4px; margin-bottom:8px; }
+.relics-preorder .pre-desc{ font-family:'Crimson Pro',serif; font-size:20px; line-height:1.65; margin:6px auto 10px; opacity:.96; }
+.relics-preorder .soon{
+  font-family:'Cinzel',serif; font-weight:700; font-size:30px; letter-spacing:.6px;
+  display:inline-block; padding:8px 14px; margin:6px 0 14px;
+  border:1px solid rgba(0,0,0,.22); border-radius:14px;
+  background:linear-gradient(180deg, rgba(255,255,255,.94), rgba(255,255,255,.76));
+  box-shadow:0 10px 26px rgba(0,0,0,.18);
+}
+.relics-preorder .paypal-wrap{ text-align:center; }
+.relics-preorder #paypal-container-SEWKMW6KYKS5E{ display:inline-block; margin:12px auto 0; }
+
