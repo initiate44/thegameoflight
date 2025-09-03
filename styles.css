@@ -113,3 +113,34 @@ main.codex .shop img {
   align-items: start;
 }
 
+
+
+/* Shop — enforce images never overflow the card */
+main.codex .shop img,
+main.codex .prints-grid img,
+main.codex .product img,
+main.codex img.print-img,
+main.codex .prints img {
+  display:block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+/* Optional: cap perceived size for large originals */
+main.codex .shop img,
+main.codex .prints-grid img,
+main.codex .product img,
+main.codex img.print-img {
+  max-height: 64vh;
+  width: clamp(220px, 42vw, 520px);
+}
+
+/* Ensure the white parchment card wraps content */
+main.codex{
+  width: min(900px, 94vw);
+  overflow: hidden;
+}
+
