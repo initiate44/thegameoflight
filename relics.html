@@ -85,25 +85,29 @@
       }
     }
 
-    /* ——— PayPal hosted button: fix layout & center ——— */
+    /* ——— PayPal hosted button: center + natural width ——— */
     .paypal-wrap{
-      /* override any previous flex rules */
       display:block;
       text-align:center;
       margin-top:10px;
     }
     #paypal-container-SEWKMW6KYKS5E{
-      display:inline-block;
-      width:100%;
-      max-width:360px;
+      display:inline-block;  /* shrink-wrap around PayPal's content */
+      max-width:100%;
       margin:0 auto;
     }
+    /* Fallback markup (when iframes are blocked) should not stretch to 100% */
     #paypal-container-SEWKMW6KYKS5E > *{
-      width:100% !important;
-      display:block;
+      display:inline-block !important;
+      width:auto !important;
+      max-width:100%;
+      vertical-align:top;
     }
     @media (max-width:480px){
-      #paypal-container-SEWKMW6KYKS5E{ max-width:280px; }
+      #paypal-container-SEWKMW6KYKS5E > *{
+        display:block !important;
+        width:100% !important;   /* full width on very small screens */
+      }
     }
   </style>
 <script>
@@ -165,8 +169,8 @@ Prepare, for when the Relics emerge, the Codex will breathe again in the hands o
 
 <div class="tablets nav">
   <a class="tab" href="index.html?v=7">Codex</a>
-  <a aria-current="page" class="tab" href="texts.html?v=7">Texts</a>
-  <a class="tab active" href="relics.html?v=7">Relics</a>
+  <a class="tab" href="texts.html?v=7">Texts</a>
+  <a aria-current="page" class="tab active" href="relics.html?v=7">Relics</a>
   <a class="tab" href="prints.html?v=7">Shop</a>
   <a class="tab" href="mailto:contact@thegameoflight.org">Contact</a>
 </div>
