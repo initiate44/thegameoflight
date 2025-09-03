@@ -63,3 +63,12 @@ body{
 
 /* Respect reduced motion */
 .reduce-motion *{transition:none !important; animation:none !important}
+
+
+/* TEXTS — Harmonized two-section layout */
+.section-block{max-width:1000px;margin:18px auto;padding:0 18px}
+.section-block .sub{font-family:'Cinzel',serif;font-size:24px;text-align:center;margin:8px 0 12px}
+.passage-title,.keep-step{font-family:'Cinzel',serif;font-size:18px;text-align:center;opacity:.9;margin:12px 0 4px}
+.passage-line,.keep-text{font-family:'Crimson Pro',serif;font-size:19px;line-height:1.65;opacity:.95;margin:8px auto;max-width:75ch;text-align:center}
+.section-block + .section-block{margin-top:24px}
+
