@@ -46,10 +46,9 @@
     }
     .sigil{ width:160px; height:160px; margin:0 auto 14px; filter: drop-shadow(0 10px 34px rgba(205,182,122,.3)); }
     h1{ font-family:'Cinzel', serif; font-weight:700; color:#14120f; letter-spacing:.8px; font-size:clamp(34px,6vw,68px); margin:0 0 10px; text-shadow:0 1px 0 rgba(255,255,255,.45); }
-    .sub{ font-family:'Cinzel', serif; font-size:clamp(18px,3vw,26px); color:#1b1915; margin:0 0 6px; }
     .subtitle{ font-family:'Cinzel', serif; font-size:clamp(16px,2.4vw,20px); color:#4a463c; margin-bottom:20px; }
     .orn{display:block; margin:16px auto 24px; width:220px; opacity:.95}
-    .text{ font-size:clamp(16px, 2.2vw, 20px); color:#1b1915; white-space:pre-wrap; margin-bottom:26px; text-align:left; }
+    .text{ font-size:clamp(16px, 2.2vw, 20px); color:#1b1915; white-space:pre-wrap; margin-bottom:26px; }
     .tablets{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:10px; }
     .tab{
       font-family:'Cinzel', serif; padding:10px 16px; border-radius:12px; border:1px solid rgba(0,0,0,.28);
@@ -58,77 +57,7 @@
       box-shadow: 0 8px 26px rgba(0,0,0,.28);
     }
     footer{ margin-top:24px; font-size:14px; color:#4a463c }
-
-    /* ——— Coming soon prominence ——— */
-    .soon{
-      font-family:'Cinzel', serif;
-      font-weight:700;
-      font-size:clamp(18px, 2.8vw, 24px);
-      letter-spacing:.04em;
-      color:#14120f;
-      margin: 6px 0 10px;
-      text-shadow:0 1px 0 rgba(255,255,255,.4);
-    }
-
-    /* ——— Cover placeholder sizing/centering ——— */
-    .relics-preorder img[src*="book-cover-placeholder.png"]{
-      width:33%;
-      max-width:260px;
-      height:auto;
-      display:block;
-      margin:10px auto 16px;
-      object-fit:contain;
-    }
-    @media (max-width:640px){
-      .relics-preorder img[src*="book-cover-placeholder.png"]{
-        width:45%;
-        max-width:220px;
-      }
-    }
-
-    /* ——— PayPal hosted button: center + natural width ——— */
-    .paypal-wrap{
-      display:block;
-      text-align:center;
-      margin-top:10px;
-    }
-    #paypal-container-SEWKMW6KYKS5E{
-      display:inline-block;  /* shrink-wrap around PayPal's content */
-      max-width:100%;
-      margin:0 auto;
-    }
-    /* Fallback markup (when iframes are blocked) should not stretch to 100% */
-    #paypal-container-SEWKMW6KYKS5E > *{
-      display:inline-block !important;
-      width:auto !important;
-      max-width:100%;
-      vertical-align:top;
-    }
-    @media (max-width:480px){
-      #paypal-container-SEWKMW6KYKS5E > *{
-        display:block !important;
-        width:100% !important;   /* full width on very small screens */
-      }
-    }
-  
-    .price{
-      font-family:'Cinzel', serif;
-      font-weight:700;
-      font-size: clamp(20px, 4.2vw, 30px);
-      letter-spacing:.02em;
-      margin: 6px 0 10px;
-      color:#14120f;
-      text-shadow: 0 1px 0 rgba(255,255,255,.6);
-    }
-    .product-desc{
-      max-width: 780px;
-      margin: 0 auto 10px;
-      font-size: clamp(14px, 1.5vw, 17px);
-      line-height: 1.45;
-      color:#2a261e;
-      padding: 0 12px;
-    }
-    </style>
+  </style>
 <script>
     (function(){
       const c=document.createElement('canvas'); c.id='stars'; document.addEventListener('DOMContentLoaded',()=>document.body.appendChild(c));
@@ -149,13 +78,9 @@
 <img alt="Sacred Sigil" class="sigil" src="assets/sacred-sigil.png?v=18"/>
 <h1>Relics</h1>
 <section class="relics-preorder">
-<h2 class="sub">The Game of Light — First Edition</h2>
-<div class="price">£144.99 GBP</div><p class="product-desc">The Game of Light — First Edition Set (Books I–V) — hand‑signed and numbered. Five movements of the same path: Needle, Temple, Crown, Mirror, One. A living codex for seekers — direct, spare, and meant to be carried. Produced with care in hardback on acid‑free archival paper with durable binding. Ships worldwide; shipping is calculated at checkout. Limited quantities for this first printing.</p>
-<h3 class="soon">Hand‑signed, numbered, and posted worldwide upon printing.</h3>
-<img alt="The Game of Light — First Edition cover placeholder" class="cover" src="assets/book-cover-placeholder.png?v=1"/>
-<div class="paypal-wrap">
-<div id="paypal-container-SEWKMW6KYKS5E"></div>
-</div>
+<h2 class="sub">First Edition — Book I</h2>
+<p class="pre-desc">Available for pre‑order. <strong>Coming Spring 2026.</strong></p><h3 class="soon">Coming Spring 2026</h3>
+<img alt="The Game of Light — First Edition cover placeholder" class="cover" src="assets/book-cover-placeholder.png?v=1"/><div class="paypal-wrap"><div id="paypal-container-SEWKMW6KYKS5E"></div></div>
 <script>
     paypal.HostedButtons({
       hostedButtonId: "SEWKMW6KYKS5E",
@@ -164,24 +89,25 @@
 </section>
 <div class="subtitle">The 144 Copies</div>
 <img alt="" class="orn" src="assets/ornament.svg?v=7"/>
-<section class="text">
+<section class="text" style="text-align:left;">
 <strong>The Coming of the Relics</strong><br/>
-From the silence of ages, <strong>144 copies</strong> are being prepared — not merely books, but anchors of light.<br/><br/>
-<strong>Before the Press</strong><br/>
-They do not yet exist; they are being called into existence. Each will be bound in number and sealed in purpose, then scattered across the earth.<br/><br/>
-<strong>Keepers &amp; Seekers</strong><br/>
-Some will go to keepers, some to seekers — all to hands that will carry them forward.<br/><br/>
+From the silence of ages, <strong>144 copies</strong> are being prepared.<br/>
+Each one a vessel, each one a mirror — not mere books, but anchors of light.<br/><br/>
+<strong>Their Birth</strong><br/>
+They are not yet here, but soon they will be called into existence.<br/>
+Bound in number, sealed in purpose, scattered across the earth —<br/>
+to seekers, to keepers, to those who will carry them forward.<br/><br/>
 <strong>Their Role</strong><br/>
-Each relic will guard a fragment of the whole. Together they will form a constellation — a chorus of light across generations.<br/><br/>
-
-Prepare, for when the Relics emerge, the Codex will breathe again in the hands of the living.
-</section>
+Each relic will guard a fragment of the whole.<br/>
+Together they will form a constellation, a chorus of light across generations.<br/><br/>
+Prepare, for when the Relics emerge, the Codex will breathe again<br/>
+in the hands of the living.
+      </section>
 <div class="tablets nav">
 <a class="tab" href="index.html?v=7">Codex</a>
-<a class="tab" href="texts.html?v=7">Texts</a>
-<a aria-current="page" class="tab active" href="relics.html?v=7">Relics</a>
-<a class="tab" href="prints.html?v=7">Shop</a>
-<a class="tab" href="mailto:contact@thegameoflight.org">Contact</a>
+<a aria-current="page" class="tab" href="texts.html?v=7">Texts</a>
+<a class="tab active" href="relics.html?v=7">Relics</a>
+<a class="tab" href="prints.html?v=7">Shop</a><a class="tab" href="mailto:contact@thegameoflight.org">Contact</a>
 </div>
 <footer>These are fragments. The Codex will carry them whole. · © <span id="year"></span> The Game of Light • v7</footer>
 </main>
