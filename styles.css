@@ -80,7 +80,7 @@ body{
 
 
 
-/* (removed old Relics Coming Soon block) */
+/* Relics — Coming Soon (resized) */
 .coming-soon{max-width:900px;margin:16px auto 12px;padding:0 18px;text-align:center}
 .coming-soon-img{
   width:clamp(260px, 60vw, 520px);
@@ -94,73 +94,22 @@ body{
 }
 
 
-/* Shop clamp replaced by hard container-relative clamp */
-
+/* Shop — clamp product image sizes for consistency */
+.print-card img,
+.product img,
+.shop-grid img,
+.print-img,
+main.codex .shop .product-image,
+main.codex .shop img {
+  width: clamp(240px, 40vw, 480px);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  max-height: 70vh;
+}
+/* If cards are side-by-side, ensure they don't overflow */
 .shop-grid, .products, .prints-grid {
   gap: 18px;
   align-items: start;
 }
 
-
-/* Shop — container-relative hard clamp */
-main.codex .prints-grid .print-card img.thumb {
-  display:block;
-  height:auto;
-  max-width: 100%;
-  width: min(520px, 92%);
-  margin: 0 auto;
-  object-fit: contain;
-}
-/* Ensure grid spacing stays tidy */
-.prints-grid{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 22px;
-}
-/* Prevent any overflow within the parchment card */
-main.codex{ overflow: hidden; }
-
-
-/* Shop — final overflow guard (v17) */
-main.codex .prints-grid .print-card > figure > img.thumb,
-main.codex .prints-grid .print-card img.thumb {
-  display:block;
-  max-width: calc(100% - 2px);
-  width: auto;
-  height: auto;
-  margin: 0 auto;
-  object-fit: contain;
-  /* hard cap to avoid giant originals */
-  max-height: 60vh;
-}
-/* Ensure the figure itself doesn't force overflow */
-main.codex .prints-grid .print-card > figure {
-  margin: 0 auto 10px;
-  max-width: 100%;
-}
-/* White card containment */
-main.codex{ overflow:hidden; }
-
-
-/* Relics — Coming Soon (v3 clamp) */
-main.codex{ overflow:hidden; }
-main.codex .coming-soon{
-  box-sizing:border-box;
-  max-width:100%;
-  padding:0 12px;
-  margin:18px auto;
-  text-align:center;
-}
-main.codex .coming-soon-img{
-  display:block;
-  max-width:100%;
-  width:min(520px, 92%);
-  height:auto;
-  margin:0 auto;
-  object-fit:contain;
-}
-main.codex .coming-soon-note{
-  font-family:'Crimson Pro',serif;
-  font-size:18px; line-height:1.6;
-  opacity:.95; margin:10px auto 2px; max-width:70ch;
-}
