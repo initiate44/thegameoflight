@@ -113,3 +113,8 @@ main.codex .shop img {
   align-items: start;
 }
 
+
+/* Relics — First Edition preorder */
+.relics-preorder{max-width:900px;margin:18px auto;padding:0 18px;text-align:center}
+.relics-preorder .sub{font-family:'Cinzel',serif;font-size:24px;margin:8px 0 12px}
+.pre-desc{font-family:'Crimson Pro',serif;font-size:19px;line-height:1.65;opacity:.95;margin:6px auto}

@@ -68,7 +68,7 @@
       addEventListener('resize',resize,{passive:true}); resize(); draw();
     })();
   </script>
-</head>
+<script src="https://www.paypal.com/sdk/js?client-id=BAAJYAP-dDNS5nYJFO4GiwahB4QVfN3dHMr8CdbSwPxM_ckoDYVD-NsTY85fQBRBdzkDdorfttlAQib8sQ&amp;components=hosted-buttons&amp;disable-funding=venmo&amp;currency=GBP"></script></head>
 <body>
 <div class="veil"></div>
 <div class="rays"></div>
@@ -77,10 +77,17 @@
 <main class="codex">
 <img alt="Sacred Sigil" class="sigil" src="assets/sacred-sigil.png?v=18"/>
 <h1>Relics</h1>
-<section class="coming-soon">
-<img alt="Coming soon — a book half-lit in darkness" class="coming-soon-img" src="assets/coming-soon-book.svg?v=1"/>
-<p class="coming-soon-note">The Codex volumes are in preparation. First editions will be announced here.</p>
+<section class="relics-preorder">
+<h2 class="sub">First Edition — Book I</h2>
+<p class="pre-desc">Available for pre‑order. <strong>Coming Spring 2026.</strong></p>
+<div id="paypal-container-SEWKMW6KYKS5E"></div>
+<script>
+    paypal.HostedButtons({
+      hostedButtonId: "SEWKMW6KYKS5E",
+    }).render("#paypal-container-SEWKMW6KYKS5E");
+  </script>
 </section>
+
 
 <div class="subtitle">The 144 Copies</div>
 <img alt="" class="orn" src="assets/ornament.svg?v=7"/>
