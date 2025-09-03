@@ -189,5 +189,18 @@
   });
 })();
 </script>
+
+<script>
+(function(){
+  const p = new URLSearchParams(location.search);
+  if(p.get('cancelled')==='1'){
+    const n = document.createElement('div');
+    n.textContent = 'Checkout was cancelled. No payment was taken.';
+    n.style.cssText = 'max-width:900px;margin:12px auto;padding:10px 14px;border:1px solid rgba(255,255,255,.25);border-radius:12px;background:rgba(255,255,255,.08);text-align:center;font-size:16px;color:#e6e6e6;';
+    const h1 = document.querySelector('h1');
+    if(h1 && h1.parentNode){ h1.parentNode.insertBefore(n, h1.nextSibling); }
+  }
+})();
+</script>
 </body>
 </html>
