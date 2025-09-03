@@ -1,0 +1,150 @@
+/* Palette: near-black cosmos with indigo/violet undertones */ 
+:root{
+  --bg-0:#05050a;
+  --bg-1:#0a0a16;
+  --bg-2:#0f0b1d;
+  --ink:#d6d6e6;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;}
+body{
+  margin:0; color:var(--ink);
+  font: 16px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background:
+    radial-gradient(1200px 800px at 50% 45%, rgba(255,255,255,0.08), transparent 40%),
+    radial-gradient(800px 500px at 50% 40%, rgba(110,120,255,0.08), transparent 35%),
+    radial-gradient(2000px 1200px at 50% 60%, var(--bg-2), var(--bg-1) 45%, var(--bg-0) 100%);
+  overflow:hidden;
+}
+
+/* Cosmos container */
+#cosmos{position:fixed; inset:0; overflow:hidden;}
+#starfield{position:absolute; inset:0; display:block;}
+
+/* Subtle geometry overlay */
+#geometry{position:absolute; inset:0; width:100%; height:100%; mix-blend-mode:screen; opacity:0.33;}
+#geometry .geo{fill:none; stroke:url(#strokeGrad); stroke-width:1; vector-effect:non-scaling-stroke;}
+#geometry .dashed{stroke-dasharray:2 6;}
+#geometry .ring .geo{stroke-opacity:0.24}
+#geometry .vesica .geo{stroke-opacity:0.24}
+
+/* Lensing + interference texture */
+#cosmos::before{
+  content:""; position:absolute; inset:-10%;
+  background:
+    radial-gradient(closest-side at 50% 45%, rgba(255,255,255,0.5), transparent 60%),
+    radial-gradient(closest-side at 50% 45%, rgba(110,120,255,0.3), transparent 70%);
+  filter: blur(60px) saturate(120%);
+  opacity:0.10; pointer-events:none; mix-blend-mode:screen;
+}
+#cosmos::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background-image: repeating-conic-gradient(from 0deg, rgba(255,255,255,0.015) 0deg 2deg, transparent 2deg 6deg);
+  opacity:0.4; mix-blend-mode:overlay; filter: blur(0.3px);
+}
+
+/* Core content */
+#core{
+  position:relative; z-index:10; height:100dvh; display:grid; place-items:center;
+  text-align:center; padding:2rem;
+}
+.title{
+  margin:0 0 .25rem; letter-spacing:0.08em; font-weight:600; text-transform:uppercase;
+  font-size: clamp(1.6rem, 3.5vw + 0.5rem, 3.8rem);
+  text-shadow: 0 0 18px rgba(220,230,255,0.35), 0 0 48px rgba(150,170,255,0.25);
+}
+.tag{opacity:0.85; margin:0 0 1.2rem; font-size:clamp(0.9rem,1.2vw + .4rem,1.2rem)}
+.cta{display:flex; gap:.8rem; justify-content:center}
+.btn{border:1px solid rgba(230,236,255,0.35); color:var(--ink); text-decoration:none; padding:.6rem 1rem; border-radius:999px; backdrop-filter: blur(2px);}
+.btn:hover{border-color:rgba(255,255,255,0.65)}
+.btn.ghost{background: rgba(255,255,255,0.04)}
+.btn.line{background: transparent}
+
+/* Respect reduced motion */
+.reduce-motion *{transition:none !important; animation:none !important}
+
+
+/* Codex — emphasized quote */
+.review-quote.highlight-quote{
+  font-family:'Crimson Pro',serif;
+  font-size:22px; line-height:1.65; font-weight:700; letter-spacing:.01em;
+  text-align:center; max-width:75ch; margin:18px auto 24px;
+}
+.review-quote.highlight-quote::before,
+.review-quote.highlight-quote::after{
+  content:""; display:block; width:90px; height:1px;
+  background:rgba(255,255,255,.28); margin:12px auto;
+}
+
+
+
+
+/* Relics — Coming Soon (resized) */
+.coming-soon{max-width:900px;margin:16px auto 12px;padding:0 18px;text-align:center}
+.coming-soon-img{
+  width:clamp(260px, 60vw, 520px);
+  height:auto;
+  filter:drop-shadow(0 18px 46px rgba(0,0,0,.42));
+}
+.coming-soon-note{
+  font-family:'Crimson Pro',serif;
+  font-size:18px; line-height:1.6; opacity:.95;
+  margin:10px auto 2px; max-width:70ch;
+}
+
+
+/* Shop — clamp product image sizes for consistency */
+.print-card img,
+.product img,
+.shop-grid img,
+.print-img,
+main.codex .shop .product-image,
+main.codex .shop img {
+  width: clamp(240px, 40vw, 480px);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  max-height: 70vh;
+}
+/* If cards are side-by-side, ensure they don't overflow */
+.shop-grid, .products, .prints-grid {
+  gap: 18px;
+  align-items: start;
+}
+
+
+/* Relics — First Edition preorder */
+.relics-preorder{max-width:900px;margin:18px auto;padding:0 18px;text-align:center}
+.relics-preorder .sub{font-family:'Cinzel',serif;font-size:24px;margin:8px 0 12px}
+.pre-desc{font-family:'Crimson Pro',serif;font-size:19px;line-height:1.65;opacity:.95;margin:6px auto}
+
+
+/* Relics — preorder emphasis & centering */
+.relics-preorder{ text-align:center; max-width:900px; margin:22px auto 28px; padding:0 18px; }
+.relics-preorder .sub{ font-family:'Cinzel',serif; font-weight:700; font-size:28px; letter-spacing:.4px; margin-bottom:8px; }
+.relics-preorder .pre-desc{ font-family:'Crimson Pro',serif; font-size:20px; line-height:1.65; margin:6px auto 10px; opacity:.96; }
+.relics-preorder .soon{
+  font-family:'Cinzel',serif; font-weight:700; font-size:30px; letter-spacing:.6px;
+  display:inline-block; padding:8px 14px; margin:6px 0 14px;
+  border:1px solid rgba(0,0,0,.22); border-radius:14px;
+  background:linear-gradient(180deg, rgba(255,255,255,.94), rgba(255,255,255,.76));
+  box-shadow:0 10px 26px rgba(0,0,0,.18);
+}
+.relics-preorder .paypal-wrap{ text-align:center; }
+.relics-preorder #paypal-container-SEWKMW6KYKS5E{ display:inline-block; margin:12px auto 0; }
+
+
+
+/* Relics — cover placeholder */
+.relics-preorder .cover{
+  display:block;
+  width: clamp(220px, 48vw, 520px);
+  height:auto;
+  margin: 6px auto 14px;
+  box-shadow: 0 18px 46px rgba(0,0,0,.32);
+  border-radius: 8px;
+}
+.relics-preorder .paypal-wrap{ text-align:center; }
+.relics-preorder #paypal-container-SEWKMW6KYKS5E{ display:inline-block; margin:12px auto 0; }
+

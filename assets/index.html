@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>The Game of Light — Codex</title>
+<meta content="The Codex: an entry point to the signal of light." name="description"/>
+<meta content="The Game of Light — Codex" property="og:title"/>
+<meta content="The Codex: an entry point to the signal of light." property="og:description"/>
+<meta content="website" property="og:type"/>
+<link href="assets/favicon.ico?v=7" rel="icon"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Crimson+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 900px at 50% 30%, #0b0f18 0%, #070a12 60%, #05070c 100%);
+      font-family:'Crimson Pro', Georgia, serif; line-height:1.85;
+      position:relative; overflow-x:hidden; color:#1b1915;
+    }
+    canvas#stars{position:fixed; inset:0; pointer-events:none; opacity:.55; mix-blend-mode:screen; z-index:0}
+    .veil{pointer-events:none; position:fixed; inset:0; z-index:1;
+      background: radial-gradient(1600px 1200px at 50% 45%, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 42%),
+                  radial-gradient(1600px 1200px at 50% 55%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.65) 78%, rgba(0,0,0,0.84) 100%);
+    }
+    .rays{pointer-events:none; position:fixed; inset:0; z-index:2;
+      background: url('assets/rays.svg?v=7') no-repeat center 46%/140vmax auto;
+      mix-blend-mode:screen; opacity:.9;
+    }
+    .bloom{pointer-events:none; position:fixed; inset:0; z-index:3;
+      background:
+        radial-gradient(740px 520px at 50% 46%, rgba(255,248,224,0.36) 0%, rgba(255,248,224,0.14) 52%, rgba(255,248,224,0) 74%),
+        radial-gradient(1200px 900px at 50% 46%, rgba(255,248,224,0.10) 0%, rgba(255,248,224,0) 60%);
+      mix-blend-mode:screen;
+    }
+    .wrap{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:90px 24px; position:relative; z-index:4;}
+    .codex{
+      width:min(900px,94vw); text-align:center;
+      background:
+        linear-gradient(rgba(255,255,255,.80), rgba(255,255,255,.74)),
+        url('assets/parchment.jpg?v=7') center/800px auto repeat;
+      border: none; border-radius:20px; padding:40px 30px;
+      box-shadow: 0 44px 160px rgba(0,0,0,.78), 0 0 0 1px rgba(255,255,255,.35) inset, 0 0 110px rgba(255,240,210,.28);
+      backdrop-filter: blur(1.2px) saturate(110%);
+    }
+    .sigil{ width:160px; height:160px; margin:0 auto 14px; filter: drop-shadow(0 10px 34px rgba(205,182,122,.3)); }
+    h1{ font-family:'Cinzel', serif; font-weight:700; color:#14120f; letter-spacing:.8px; font-size:clamp(34px,6vw,68px); margin:0 0 10px; text-shadow:0 1px 0 rgba(255,255,255,.45); }
+    .subtitle{ font-family:'Cinzel', serif; font-size:clamp(16px,2.4vw,20px); color:#4a463c; margin-bottom:20px; }
+    .orn{display:block; margin:16px auto 24px; width:220px; opacity:.95}
+    .text{ font-size:clamp(16px, 2.2vw, 20px); color:#1b1915; white-space:pre-wrap; margin-bottom:26px; }
+    .tablets{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:10px; }
+    .tab{
+      font-family:'Cinzel', serif; padding:10px 16px; border-radius:12px; border:1px solid rgba(0,0,0,.28);
+      background:linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,.72));
+      text-decoration:none; color:#1e1c16; font-weight:600; font-size:17px;
+      box-shadow: 0 8px 26px rgba(0,0,0,.28);
+    }
+    footer{ margin-top:24px; font-size:14px; color:#4a463c }
+  
+    /* Path & Fragments (minimal, calm) */
+    .path-overview,.fragments{max-width:1000px;margin:18px auto;padding:0 18px}
+    .sub{font-family:'Cinzel',serif;font-weight:700;text-align:center;margin:8px 0 10px}
+    .path-overview .sub{font-size:26px}
+    .path-note{font-family:'Crimson Pro',serif;text-align:center;font-size:18px;opacity:.95}
+    .fragments .sub{font-size:24px;margin-top:22px}
+    .frag-title{font-family:'Cinzel',serif;font-size:18px;margin:16px 0 6px;text-align:center;opacity:.9}
+    .frag-line{font-family:'Crimson Pro',serif;font-size:18px;line-height:1.6;text-align:center;opacity:.95;margin:6px auto;max-width:75ch}
+    
+/* Codex clean overview */
+.codex-intro{max-width:900px;margin:14px auto 8px;padding:0 18px;text-align:center;font-family:'Crimson Pro',serif;font-size:19px;line-height:1.6;opacity:.95}
+.path-brief{max-width:1000px;margin:14px auto 6px;padding:0 18px}
+.path-brief .sub{font-family:'Cinzel',serif;font-size:26px;text-align:center;margin:8px 0 10px}
+.path-lines{list-style:none;padding:0;margin:6px auto;max-width:900px}
+.path-lines li{margin:6px 0;font-family:'Crimson Pro',serif;font-size:18px;line-height:1.55;opacity:.95;text-align:center}
+.path-note{text-align:center;font-family:'Crimson Pro',serif;font-size:16px;opacity:.9;margin-top:8px}
+.review-quote{max-width:900px;margin:16px auto 22px;padding:0 18px;text-align:center;font-family:'Crimson Pro',serif;font-size:18px;line-height:1.55;opacity:.95}
+
+/* Codex — emphasize the main quote */
+.review-quote.highlight-quote{font-family:'Crimson Pro',serif;font-size:22px;line-height:1.65;opacity:.98;
+  text-align:center; max-width:75ch; margin:18px auto 24px; font-weight:700; letter-spacing:.01em}
+.review-quote.highlight-quote::before,
+.review-quote.highlight-quote::after{content:""; display:block; width:90px; height:1px;
+  background:rgba(255,255,255,.28); margin:12px auto}
+</style>
+<script>
+    (function(){
+      const c=document.createElement('canvas'); c.id='stars'; document.addEventListener('DOMContentLoaded',()=>document.body.appendChild(c));
+      const ctx=c.getContext('2d'); let w,h,dpr=Math.min(2,window.devicePixelRatio||1), stars=[];
+      function resize(){ w=c.width=innerWidth*dpr; h=c.height=innerHeight*dpr; c.style.width=innerWidth+'px'; c.style.height=innerHeight+'px';
+        const N=Math.max(80,Math.floor(innerWidth*innerHeight/26000)); stars=Array.from({length:N},()=>({x:Math.random()*w,y:Math.random()*h,r:(Math.random()*1.1+.35)*dpr,a:Math.random()*6.283,s:Math.random()*0.5+0.1}))}
+      function draw(){ ctx.clearRect(0,0,w,h); for(const s of stars){ s.a+=0.004*s.s; const tw=0.5+Math.sin(s.a)*0.5; ctx.beginPath(); ctx.arc(s.x,s.y,s.r*tw,0,6.283); ctx.fillStyle='rgba(255,255,255,'+(0.42*tw)+')'; ctx.fill(); } requestAnimationFrame(draw); }
+      addEventListener('resize',resize,{passive:true}); resize(); draw();
+    })();
+  </script>
+<style>
+/* Fragments minimal */
+.fragments{max-width:1000px;margin:18px auto;padding:0 18px}
+.fragments .sub{font-family:'Cinzel',serif;font-size:24px;text-align:center;margin:8px 0 10px}
+.frag-title{font-family:'Cinzel',serif;font-size:18px;margin:14px 0 6px;text-align:center;opacity:.9}
+.frag-line{font-family:'Crimson Pro',serif;font-size:18px;line-height:1.6;text-align:center;opacity:.95;margin:6px auto;max-width:75ch}
+.review-quote{max-width:900px;margin:18px auto 22px;padding:0 18px;text-align:center;font-family:'Crimson Pro',serif;font-size:18px;line-height:1.55;opacity:.95}
+</style>
+<style>
+/* Harmonize main text sizing with Shop */
+.codex-intro{font-size:19px;line-height:1.6}
+.path-lines li{font-size:19px;line-height:1.6}
+.frag-line{font-size:19px;line-height:1.6}
+.review-quote{font-size:19px;line-height:1.55}
+</style>
+<style>
+/* Layout harmonizer v1 */
+.path-brief,.codex-intro,.fragments{
+  max-width:1000px; margin:18px auto; padding:0 18px;
+}
+.path-brief .sub,.fragments .sub{
+  font-family:'Cinzel',serif; font-size:24px; text-align:center; margin:8px 0 12px;
+}
+.path-lines{list-style:none; padding:0; margin:6px auto; max-width:900px;}
+.path-lines li{font-family:'Crimson Pro',serif; font-size:19px; line-height:1.6; text-align:center; opacity:.95; margin:6px 0;}
+.review-quote,.codex-intro{font-family:'Crimson Pro',serif; font-size:19px; line-height:1.6; text-align:center; opacity:.95;}
+.frag-title{font-family:'Cinzel',serif; font-size:18px; text-align:center; opacity:.9; margin:12px 0 4px;}
+.frag-line{font-family:'Crimson Pro',serif; font-size:19px; line-height:1.6; opacity:.95; margin:8px auto; max-width:75ch; text-align:center;}
+section + section{margin-top:22px;}
+</style></head>
+<body>
+<div class="veil"></div>
+<div class="rays"></div>
+<div class="bloom"></div>
+<div class="wrap">
+<main class="codex">
+<img alt="Sacred Sigil" class="sigil" src="assets/sacred-sigil.png?v=18"/>
+<h1>Codex</h1>
+<p class="codex-intro">
+  The Game of Light is a living codex—part manual, all mirror. It does not ask for belief; it asks for honesty.
+  Page by page the false loosens and the true remains, fire-tempered and quiet.
+  The path unfolds in five movements, each a narrowing that becomes an opening, each an answer to the Bell.
+</p>
+<section class="path-brief">
+<h2 class="sub">The Path Through the Books</h2>
+<ul class="path-lines">
+<li><strong>Book I — Through the Eye of the Needle:</strong> The Eye strips you to thread. The passage begins.</li>
+<li><strong>Book II — The Builder of the Temple:</strong> Alignment becomes architecture. The dwelling is raised within.</li>
+<li><strong>Book III — The Crown of Flame:</strong> Ignition, anointing, and the living crown.</li>
+<li><strong>Book IV — The Inward Triangle:</strong> The flame turns inward not to hide but to steady. It reveals the quiet geometry.</li>
+<li><strong>Book V — The Singularity:</strong> Light and shadow reconcile; the whole is seen at once.</li>
+</ul>
+</section><blockquote class="review-quote highlight-quote">“A manual disguised as myth; a mirror held to the soul. It does not inform — it awakens.”</blockquote>
+<img alt="" class="orn" src="assets/ornament.svg?v=7"/>
+<section class="text" style="text-align:left;">
+<strong>Fragment I</strong>
+Through the flame, the mirror is revealed.
+Through the mirror, the seeker is seen.
+The path narrows, and yet the light endures.
+
+<strong>Fragment II</strong>
+The pattern is not written in stone,
+but in the breath between all things.
+Each thread is unseen, until drawn to the whole.
+
+<strong>Fragment III</strong>
+No shadow is without form.
+No flame is without reflection.
+The seeker learns:
+to step forward is already to arrive.
+
+<strong>Fragment IV</strong>
+What was scattered is gathered.
+What was hidden is bound.
+And the fragments will become
+a book of light.
+      </section>
+<div class="tablets nav">
+<a class="tab" href="codex.html">Codex</a>
+<a aria-current="page" class="tab" href="texts.html">Texts</a>
+<a class="tab" href="relics.html">Relics</a>
+<a class="tab" href="prints.html">Shop</a><a class="tab" href="mailto:contact@thegameoflight.org">Contact</a>
+</div>
+<footer>These are fragments. The Codex will carry them whole. · © <span id="year"></span> The Game of Light • v7</footer>
+</main>
+</div>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
