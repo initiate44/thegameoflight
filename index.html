@@ -1,16 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Game of Light — Codex</title>
-  <meta name="description" content="The Codex: an entry point to the signal of light." />
-  <meta property="og:title" content="The Game of Light — Codex" />
-  <meta property="og:description" content="The Codex: an entry point to the signal of light." />
-  <meta property="og:type" content="website" />
-  <link rel="icon" href="assets/favicon.ico?v=7" />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Crimson+Pro:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>The Game of Light — Codex</title>
+<meta content="The Codex: an entry point to the signal of light." name="description"/>
+<meta content="The Game of Light — Codex" property="og:title"/>
+<meta content="The Codex: an entry point to the signal of light." property="og:description"/>
+<meta content="website" property="og:type"/>
+<link href="assets/favicon.ico?v=7" rel="icon"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Crimson+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
     html,body{height:100%}
     body{
       margin:0;
@@ -57,7 +58,7 @@
     }
     footer{ margin-top:24px; font-size:14px; color:#4a463c }
   </style>
-  <script>
+<script>
     (function(){
       const c=document.createElement('canvas'); c.id='stars'; document.addEventListener('DOMContentLoaded',()=>document.body.appendChild(c));
       const ctx=c.getContext('2d'); let w,h,dpr=Math.min(2,window.devicePixelRatio||1), stars=[];
@@ -69,16 +70,16 @@
   </script>
 </head>
 <body>
-  <div class="veil"></div>
-  <div class="rays"></div>
-  <div class="bloom"></div>
-  <div class="wrap">
-    <main class="codex">
-      <img class="sigil" src="assets/sacred-sigil.svg?v=7" alt="Sacred Sigil">
-      <h1>Codex</h1>
-      <div class="subtitle">Fragments from the Codex</div>
-      <img class="orn" src="assets/ornament.svg?v=7" alt="">
-      <section class="text" style="text-align:left;">
+<div class="veil"></div>
+<div class="rays"></div>
+<div class="bloom"></div>
+<div class="wrap">
+<main class="codex">
+<img alt="Sacred Sigil" class="sigil" src="assets/sacred-sigil.svg?v=7"/>
+<h1>Codex</h1>
+<div class="subtitle">Fragments from the Codex</div>
+<img alt="" class="orn" src="assets/ornament.svg?v=7"/>
+<section class="text" style="text-align:left;">
 <strong>Fragment I</strong>
 Through the flame, the mirror is revealed.
 Through the mirror, the seeker is seen.
@@ -101,15 +102,15 @@ What was hidden is bound.
 And the fragments will become
 a book of light.
       </section>
-      <div class="tablets nav">
-        <a class="tab" href="index.html?v=7">Codex</a>
-        <a class="tab" href="texts.html?v=7" aria-current="page">Texts</a>
-        <a class="tab" href="relics.html?v=7">Relics</a>
-        <a class="tab" href="mailto:contact@thegameoflight.org">Contact</a>
-      </div>
-      <footer>These are fragments. The Codex will carry them whole. · © <span id="year"></span> The Game of Light • v7</footer>
-    </main>
-  </div>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<div class="tablets nav">
+<a class="tab" href="index.html?v=7">Codex</a>
+<a aria-current="page" class="tab" href="texts.html?v=7">Texts</a>
+<a class="tab" href="relics.html?v=7">Relics</a>
+<a class="tab" href="prints.html?v=7">Shop</a><a class="tab" href="mailto:contact@thegameoflight.org">Contact</a>
+</div>
+<footer>These are fragments. The Codex will carry them whole. · © <span id="year"></span> The Game of Light • v7</footer>
+</main>
+</div>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
