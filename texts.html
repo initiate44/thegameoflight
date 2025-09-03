@@ -11,6 +11,69 @@
 <meta content="website" property="og:type"/>
 <link href="assets/favicon.ico?v=7" rel="icon"/>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Crimson+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 900px at 50% 30%, #0b0f18 0%, #070a12 60%, #05070c 100%);
+      font-family:'Crimson Pro', Georgia, serif; line-height:1.85;
+      position:relative; overflow-x:hidden; color:#1b1915;
+    }
+    canvas#stars{position:fixed; inset:0; pointer-events:none; opacity:.55; mix-blend-mode:screen; z-index:0}
+    .veil{pointer-events:none; position:fixed; inset:0; z-index:1;
+      background: radial-gradient(1600px 1200px at 50% 45%, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 42%),
+                  radial-gradient(1600px 1200px at 50% 55%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.65) 78%, rgba(0,0,0,0.84) 100%);
+    }
+    .rays{pointer-events:none; position:fixed; inset:0; z-index:2;
+      background: url('assets/rays.svg?v=7') no-repeat center 46%/140vmax auto;
+      mix-blend-mode:screen; opacity:.9;
+    }
+    .bloom{pointer-events:none; position:fixed; inset:0; z-index:3;
+      background:
+        radial-gradient(740px 520px at 50% 46%, rgba(255,248,224,0.36) 0%, rgba(255,248,224,0.14) 52%, rgba(255,248,224,0) 74%),
+        radial-gradient(1200px 900px at 50% 46%, rgba(255,248,224,0.10) 0%, rgba(255,248,224,0) 60%);
+      mix-blend-mode:screen;
+    }
+    .wrap{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:90px 24px; position:relative; z-index:4;}
+    .codex{
+      width:min(900px,94vw); text-align:center;
+      background:
+        linear-gradient(rgba(255,255,255,.80), rgba(255,255,255,.74)),
+        url('assets/parchment.jpg?v=7') center/800px auto repeat;
+      border: none; border-radius:20px; padding:40px 30px;
+      box-shadow: 0 44px 160px rgba(0,0,0,.78), 0 0 0 1px rgba(255,255,255,.35) inset, 0 0 110px rgba(255,240,210,.28);
+      backdrop-filter: blur(1.2px) saturate(110%);
+    }
+    .sigil{ width:160px; height:160px; margin:0 auto 14px; filter: drop-shadow(0 10px 34px rgba(205,182,122,.3)); }
+    h1{ font-family:'Cinzel', serif; font-weight:700; color:#14120f; letter-spacing:.8px; font-size:clamp(34px,6vw,68px); margin:0 0 10px; text-shadow:0 1px 0 rgba(255,255,255,.45); }
+    .subtitle{ font-family:'Cinzel', serif; font-size:clamp(16px,2.4vw,20px); color:#4a463c; margin-bottom:20px; }
+    .orn{display:block; margin:16px auto 24px; width:220px; opacity:.95}
+    .text{ font-size:clamp(16px, 2.2vw, 20px); color:#1b1915; white-space:pre-wrap; margin-bottom:26px; }
+    .tablets{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:10px; }
+    .tab{
+      font-family:'Cinzel', serif; padding:10px 16px; border-radius:12px; border:1px solid rgba(0,0,0,.28);
+      background:linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,.72));
+      text-decoration:none; color:#1e1c16; font-weight:600; font-size:17px;
+      box-shadow: 0 8px 26px rgba(0,0,0,.28);
+    }
+    footer{ margin-top:24px; font-size:14px; color:#4a463c }
+  
+    /* Path & Fragments (minimal, calm) */
+    .path-overview,.fragments{max-width:1000px;margin:18px auto;padding:0 18px}
+    .sub{font-family:'Cinzel',serif;font-weight:700;text-align:center;margin:8px 0 10px}
+    .path-overview .sub{font-size:26px}
+    .path-note{font-family:'Crimson Pro',serif;text-align:center;font-size:18px;opacity:.95}
+    .fragments .sub{font-size:24px;margin-top:22px}
+    .frag-title{font-family:'Cinzel',serif;font-size:18px;margin:16px 0 6px;text-align:center;opacity:.9}
+    .frag-line{font-family:'Crimson Pro',serif;font-size:18px;line-height:1.6;text-align:center;opacity:.95;margin:6px auto;max-width:75ch}
+    
+/* Texts — Fragments only */
+.fragments{max-width:1000px;margin:18px auto;padding:0 18px}
+.fragments .sub{font-family:'Cinzel',serif;font-size:24px;text-align:center;margin:8px 0 10px}
+.frag-title{font-family:'Cinzel',serif;font-size:18px;margin:14px 0 6px;text-align:center;opacity:.9}
+.frag-line{font-family:'Crimson Pro',serif;font-size:18px;line-height:1.6;text-align:center;opacity:.95;margin:6px auto;max-width:75ch}
+.review-quote{max-width:900px;margin:18px auto 22px;padding:0 18px;text-align:center;font-family:'Crimson Pro',serif;font-size:18px;line-height:1.55;opacity:.95}
+</style>
 <script>
     (function(){
       const c=document.createElement('canvas'); c.id='stars'; document.addEventListener('DOMContentLoaded',()=>document.body.appendChild(c));
@@ -21,28 +84,26 @@
       addEventListener('resize',resize,{passive:true}); resize(); draw();
     })();
   </script>
+
 <style>
-/* Fragments minimal (dedup) */
+/* Fragments minimal */
 .fragments{max-width:1000px;margin:18px auto;padding:0 18px}
 .fragments .sub{font-family:'Cinzel',serif;font-size:24px;text-align:center;margin:8px 0 10px}
 .frag-title{font-family:'Cinzel',serif;font-size:18px;margin:14px 0 6px;text-align:center;opacity:.9}
-.frag-line{font-family:'Crimson Pro',serif;font-size:19px;line-height:1.6;text-align:center;opacity:.95;margin:6px auto;max-width:75ch}
-.review-quote{max-width:900px;margin:18px auto 22px;padding:0 18px;text-align:center;
-  font-family:'Crimson Pro',serif;font-size:19px;line-height:1.55;opacity:.95}
+.frag-line{font-family:'Crimson Pro',serif;font-size:18px;line-height:1.6;text-align:center;opacity:.95;margin:6px auto;max-width:75ch}
+.review-quote{max-width:900px;margin:18px auto 22px;padding:0 18px;text-align:center;font-family:'Crimson Pro',serif;font-size:18px;line-height:1.55;opacity:.95}
+</style>
 
-/* Texts layout */
-.quotes-five,.rites-short,.passage-long{max-width:1000px;margin:18px auto;padding:0 18px}
-.quotes-five .sub,.rites-short .sub,.passage-long .sub{font-family:'Cinzel',serif;font-size:24px;text-align:center;margin:8px 0 10px}
-.quotes-five blockquote{font-family:'Crimson Pro',serif;font-size:19px;line-height:1.6;opacity:.95;margin:8px auto;max-width:75ch;text-align:center}
-.rite-title{font-family:'Cinzel',serif;font-size:18px;margin:12px 0 4px;text-align:center;opacity:.9}
-.rite-line{font-family:'Crimson Pro',serif;font-size:19px;line-height:1.6;opacity:.95;margin:4px auto;max-width:75ch;text-align:center}
-.passage-long .long{font-family:'Crimson Pro',serif;font-size:19px;line-height:1.7;opacity:.95;margin:10px auto;max-width:75ch;text-align:center}
 
-/* Texts — Passages from the books */
-.quotes-five .sub{font-family:'Cinzel',serif;font-size:24px;text-align:center;margin:8px 0 10px}
-.quotes-five .rite-title{font-family:'Cinzel',serif;font-size:18px;margin:12px 0 4px;text-align:center;opacity:.9}
-.quotes-five .rite-line{font-family:'Crimson Pro',serif;font-size:19px;line-height:1.6;opacity:.95;margin:6px auto;max-width:75ch;text-align:center}
-</style></head>
+<style>
+/* Harmonize main text sizing with Shop */
+.codex-intro{font-size:19px;line-height:1.6}
+.path-lines li{font-size:19px;line-height:1.6}
+.frag-line{font-size:19px;line-height:1.6}
+.review-quote{font-size:19px;line-height:1.55}
+</style>
+
+</head>
 <body>
 <div class="veil"></div>
 <div class="rays"></div>
@@ -50,31 +111,21 @@
 <div class="wrap">
 <main class="codex">
 <img alt="Sacred Sigil" class="sigil" src="assets/sacred-sigil.png?v=18"/>
-<h1>Texts</h1><section class="quotes-five">
-<h2 class="sub">Passages</h2>
-<h3 class="rite-title">Book I — Through the Eye of the Needle</h3>
-<blockquote class="rite-line">“This is the first narrowing. All illusion falls away. Only essence remains.”</blockquote>
-<h3 class="rite-title">Book II — The Builder of the Temple</h3>
-<blockquote class="rite-line">“Stone by stone, wall by wall, the temple rises not above the world but within it.”</blockquote>
-<h3 class="rite-title">Book III — The Crown of Flame</h3>
-<blockquote class="rite-line">“The flame rises not to consume but to crown.”</blockquote>
-<h3 class="rite-title">Book IV — The Inward Triangle</h3>
-<blockquote class="rite-line">“The flame turns inward not to hide but to steady. It bends not to silence — it reveals it.”</blockquote>
-<h3 class="rite-title">Book V — The Singularity</h3>
-<blockquote class="rite-line">“Light without shadow blinds; shadow without light devours. Together, they transfigure.”</blockquote>
-</section><section class="rites-short">
-<h2 class="sub">Short Rites</h2>
-<h3 class="rite-title">Rite of the Inner Flame</h3>
-<p class="rite-line">Sit. Breathe. Picture the flame rising on the inhale, glowing on the exhale. Whisper: “This flame is mine. This flame is eternal.”</p>
-<h3 class="rite-title">Rite of the Twin Flames</h3>
-<p class="rite-line">Left hand: “I welcome mercy.” Right hand: “I welcome courage.” Bring palms together: “I burn whole.”</p>
-</section><section class="passage-long">
-<h2 class="sub">From the Codex</h2>
-<blockquote class="long">
-    The path narrows, but not to starve the soul — to feed it. What will not fit through the Eye was never yours to carry. 
-    In the Temple, architecture is obedience to what survived the narrowing. And at the Crown, fire proves itself gentle by refusing to devour the one who wears it.
-  </blockquote>
+<h1>Texts</h1>
+<section class="fragments">
+  <h2 class="sub">Fragments from the Codex</h2>
+  <h3 class="frag-title">Fragment I</h3>
+  <blockquote class="frag-line">Through the flame, the mirror is revealed.<br>Through the mirror, the seeker is seen.<br>The path narrows, and yet the light endures.</blockquote>
+  <h3 class="frag-title">Fragment II</h3>
+  <blockquote class="frag-line">The pattern is not written in stone,<br>but in the breath between all things.<br>Each thread is unseen, until drawn to the whole.</blockquote>
+  <h3 class="frag-title">Fragment III</h3>
+  <blockquote class="frag-line">No shadow is without form.<br>No flame is without reflection.<br>The seeker learns:<br>to step forward is already to arrive.</blockquote>
+  <h3 class="frag-title">Fragment IV</h3>
+  <blockquote class="frag-line">What was scattered is gathered.<br>What was hidden is bound.<br>And the fragments will become<br>a book of light.</blockquote>
 </section>
+<blockquote class="review-quote">“Not instruction alone, but invocation. The Bell that makes you remember.”</blockquote>
+
+
 <img alt="" class="orn" src="assets/ornament.svg?v=7"/>
 <section class="text" style="text-align:left;">
 <strong>Fragment I</strong>
