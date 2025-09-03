@@ -94,53 +94,28 @@ body{
 }
 
 
-/* Shop — clamp product image sizes for consistency */
-.print-card img,
-.product img,
-.shop-grid img,
-.print-img,
-main.codex .shop .product-image,
-main.codex .shop img {
-  width: clamp(240px, 40vw, 480px);
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  max-height: 70vh;
-}
-/* If cards are side-by-side, ensure they don't overflow */
+/* Shop clamp replaced by hard container-relative clamp */
+
 .shop-grid, .products, .prints-grid {
   gap: 18px;
   align-items: start;
 }
 
 
-
-/* Shop — enforce images never overflow the card */
-main.codex .shop img,
-main.codex .prints-grid img,
-main.codex .product img,
-main.codex img.print-img,
-main.codex .prints img {
+/* Shop — container-relative hard clamp */
+main.codex .prints-grid .print-card img.thumb {
   display:block;
+  height:auto;
   max-width: 100%;
-  width: auto;
-  height: auto;
+  width: min(520px, 92%);
   margin: 0 auto;
   object-fit: contain;
 }
-
-/* Optional: cap perceived size for large originals */
-main.codex .shop img,
-main.codex .prints-grid img,
-main.codex .product img,
-main.codex img.print-img {
-  max-height: 64vh;
-  width: clamp(220px, 42vw, 520px);
+/* Ensure grid spacing stays tidy */
+.prints-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
 }
-
-/* Ensure the white parchment card wraps content */
-main.codex{
-  width: min(900px, 94vw);
-  overflow: hidden;
-}
-
+/* Prevent any overflow within the parchment card */
+main.codex{ overflow: hidden; }
