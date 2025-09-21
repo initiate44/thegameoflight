@@ -17,3 +17,9 @@ python -m http.server 8080
 1. Create a repo and push these files.
 2. In repo settings, enable **Pages** → Source: **Deploy from a branch** → Branch: **main** (root).
 3. Visit the Pages URL once it builds.
+
+# The Game of Light — The Codex
+
+Placeholder cover:
+
+![Codex Cover](assets/book-cover-placeholder.png)
